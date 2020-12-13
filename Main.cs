@@ -1,9 +1,6 @@
 ﻿using HarmonyLib;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+using UnityEngine;
 using UnityModManagerNet;
 
 namespace HueRandomizer
@@ -32,7 +29,7 @@ namespace HueRandomizer
 
         private static void RandomizeLevels()
         {
-            Random rand = new Random();
+            System.Random rand = new System.Random();
             ShuffledPuzzleLevels = new List<string>(PuzzleLevels);
 
             Shuffle<string>(ref ShuffledPuzzleLevels, rand);
@@ -139,7 +136,7 @@ namespace HueRandomizer
         /// Use Fisher-Yates algorithm to shuffle a list.
         /// </summary>
         /// <param name="list"></param>
-        private static void Shuffle<T>(ref List<T> list, Random rand)
+        private static void Shuffle<T>(ref List<T> list, System.Random rand)
         {
 
             int j;
@@ -172,6 +169,24 @@ namespace HueRandomizer
 
     }
 
+    [HarmonyPatch(typeof(HueSceneManager), "SaveSceneInfo")]
+    public static class HueSceneManager_SaveSceneInfo_Patch
+    {
+        public static void Prefix(ref Vector3 playerOffsetFromDoor)
+        {
+            playerOffsetFromDoor = new Vector3(0, 0, 0);
+        }
+    }
+
+    [HarmonyPatch(typeof(SaveLoadManager), "Checkpoint")]
+    public static class SaveLoadManager_Checkpoint_Patch
+    {
+        public static void Prefix(ref Vector3 doorOffset)
+        {
+            doorOffset = new Vector3(0, 0, 0);
+        }
+    }
+
 
     [HarmonyPatch(typeof(DoorNode), "GetTarget")]
     public static class Patch
@@ -195,7 +210,7 @@ namespace HueRandomizer
                     int targetIndex = levelNode.doors[1];
 
                     __result = ___map.GetNodeFromIndex(targetIndex) as DoorNode;
-                    Main.Mod.Logger.Log("result: " + __result.GetParent().Label + " "  + __result.GetParent().GetDoorID(__result));
+                    Main.Mod.Logger.Log("result: " + __result.GetParent().Label + " " + __result.GetParent().GetDoorID(__result));
 
 
 
