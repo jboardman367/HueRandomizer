@@ -1,0 +1,8 @@
+{
+  "Id": "HueRandomizer",
+  "DisplayName" : "Hue Randomizer",
+  "Author": "Modiseus",
+  "Version": "0.1.0",
+  "EntryMethod": "HueRandomizer.Main.Load",
+  "HomePage": "https://github.com/Modiseus/HueRandomizer"
+}
