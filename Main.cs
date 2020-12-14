@@ -12,9 +12,17 @@ namespace HueRandomizer
         public static string StartingLevel = "OldLadyHouse";
         public static string EndingLevel = "MumRoom";
 
+        public static Settings settings;
+
+        private static System.Random SeedRandomizer = new System.Random();
+
         public static bool Load(UnityModManager.ModEntry modEntry)
         {
             Mod = modEntry;
+            Mod.OnGUI = OnGUI;
+            Mod.OnSaveGUI = OnSaveGUI;
+
+            settings = Settings.Load<Settings>(Mod);
 
             //TODO: save seed and add a menu
             //ShuffledPuzzleLevels = PuzzleLevels;
@@ -26,9 +34,25 @@ namespace HueRandomizer
             return true;
         }
 
+        public static void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            settings.Draw(modEntry);
+        }
+
+        public static void OnSaveGUI(UnityModManager.ModEntry modEntry)
+        {
+            settings.Save(modEntry);
+        }
+
         public static void RandomizeLevels()
         {
-            System.Random rand = new System.Random();
+            if(settings.Seed == 0)
+            {
+                settings.Seed = SeedRandomizer.Next();
+                settings.Save(Mod);
+            }
+
+            System.Random rand = new System.Random(settings.Seed);
             ShuffledPuzzleLevels = new List<string>(PuzzleLevels);
 
             Shuffle<string>(ref ShuffledPuzzleLevels, rand);
