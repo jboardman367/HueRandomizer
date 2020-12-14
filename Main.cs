@@ -16,7 +16,7 @@ namespace HueRandomizer
         {
             Mod = modEntry;
 
-            //TODO: add menu
+            //TODO: save seed and add a menu
             //ShuffledPuzzleLevels = PuzzleLevels;
             RandomizeLevels();
 
@@ -98,33 +98,6 @@ namespace HueRandomizer
         {
             return ShuffledPuzzleLevels[ShuffledPuzzleLevels.Count - 1];
         }
-        public static string MapLevelNode(string levelName)
-        {
-            if (!PuzzleLevels.Contains(levelName))
-            {
-                return levelName;
-            }
-
-            int puzzleIndex = PuzzleLevels.IndexOf(levelName);
-
-            string mappedLevel = ShuffledPuzzleLevels[puzzleIndex];
-            Mod.Logger.Log("Mapped " + levelName + " to " + mappedLevel);
-            return mappedLevel;
-        }
-
-        public static int GetEntranceDoor(LevelNode node)
-        {
-            return node.doors[0];
-        }
-        public static int GetExitDoor(LevelNode node)
-        {
-            if (node.Label == StartingLevel)
-            {
-                return node.doors[0];
-            }
-
-            return node.doors[1];
-        }
 
         /// <summary>
         /// Use Fisher-Yates algorithm to shuffle a list.
@@ -132,14 +105,14 @@ namespace HueRandomizer
         /// <param name="list"></param>
         private static void Shuffle<T>(ref List<T> list, System.Random rand)
         {
-
             int j;
+            T temp;
 
             for (int i = list.Count - 1; i >= 1; i--)
             {
                 j = rand.Next(0, i + 1);
 
-                T temp = list[i];
+                temp = list[i];
                 list[i] = list[j];
                 list[j] = temp;
             }
@@ -154,8 +127,7 @@ namespace HueRandomizer
         private static List<string> ShuffledPuzzleLevels = PuzzleLevels;
 
         private static List<string> PuzzleLevels = new List<string>(new string[] {
-            //"DropThroughColour","PullTute02","JumpColour","SpikeTute03","BoulderTutorialNew01","AlternatingColourSwitch","FallThroughColours","AlternatingColourJumps02","ClimbUpColours02","BoulderDropChase02","BoulderTrap02","BasementGoo","UniGooStairs","ConveyerGoo","GooPressure","UniGooStairsDown","GooBalloonDip","GooBalloonPressure","BounceToDeath","MountainsBounceKeyRetrieve","BounceSpikePit","MountainsZigZag","BounceThwompDash","BounceCrateDrag","BouncePit","MountainsBounceLaserIntro","MountainsBounceIntro","BounceConveyer","LaserBounceChange","LaserTutorial","LaserJumpSwitch","LaserCrateBlock","LaserMovingSwitch","PipePush","PlatformBlockLasers","LaserPlatformMadness1","LaserActivatedTutorial","LaserClimb","LaserHeights","ThwompLaserRunner","LaserBalloonMaze","LeverMadness","LeverTutorial","LaserDoors","KeyTutorial","PuzzleSequence","BoxSlideMaze","AlternatingBoulders","BlackBoxDecoy","CrushOnStart","NarrowCorridorCrates","BoulderSwitchChase","CrumblingRockJump","HueDunnit","JumpAlign","SlideAcrossTheGap","BrickMaze","BalloonDecoy","BalloonMaze","BalloonSwitchJump","BalloonThwompJump","BoulderPressurepads","CrateSequence","CrateThwompRetrieve","LongCratePressure","PressurePadSlide","ThwompClimb","ThwompRunner","ThwompTrigger","ThwompTutorial","LaserPlatformMadness2","UniSlide","ThwompGooClimb","ThwompDoubleLaser","BounceGooIntro","GooBalloonCrates","MovingGoo","ThwompGoo"
-            "DropThroughColour"
+            "DropThroughColour","PullTute02","JumpColour","SpikeTute03","BoulderTutorialNew01","AlternatingColourSwitch","FallThroughColours","AlternatingColourJumps02","ClimbUpColours02","BoulderDropChase02","BoulderTrap02","BasementGoo","UniGooStairs","ConveyerGoo","GooPressure","UniGooStairsDown","GooBalloonDip","GooBalloonPressure","BounceToDeath","MountainsBounceKeyRetrieve","BounceSpikePit","MountainsZigZag","BounceThwompDash","BounceCrateDrag","BouncePit","MountainsBounceLaserIntro","MountainsBounceIntro","BounceConveyer","LaserBounceChange","LaserTutorial","LaserJumpSwitch","LaserCrateBlock","LaserMovingSwitch","PipePush","PlatformBlockLasers","LaserPlatformMadness1","LaserActivatedTutorial","LaserClimb","LaserHeights","ThwompLaserRunner","LaserBalloonMaze","LeverMadness","LeverTutorial","LaserDoors","KeyTutorial","PuzzleSequence","BoxSlideMaze","AlternatingBoulders","BlackBoxDecoy","CrushOnStart","NarrowCorridorCrates","BoulderSwitchChase","CrumblingRockJump","HueDunnit","JumpAlign","SlideAcrossTheGap","BrickMaze","BalloonDecoy","BalloonMaze","BalloonSwitchJump","BalloonThwompJump","BoulderPressurepads","CrateSequence","CrateThwompRetrieve","LongCratePressure","PressurePadSlide","ThwompClimb","ThwompRunner","ThwompTrigger","ThwompTutorial","LaserPlatformMadness2","UniSlide","ThwompGooClimb","ThwompDoubleLaser","BounceGooIntro","GooBalloonCrates","MovingGoo","ThwompGoo"
         });
 
         private static Dictionary<string, int> LevelDict = new Dictionary<string, int>() {
