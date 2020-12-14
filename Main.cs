@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityModManagerNet;
 
 namespace HueRandomizer
@@ -10,8 +9,8 @@ namespace HueRandomizer
 
         public static UnityModManager.ModEntry Mod;
 
-        private static string StartingLevel = "OldLadyHouse";
-        private static string EndingLevel = "OutroDream";
+        public static string StartingLevel = "OldLadyHouse";
+        public static string EndingLevel = "MumRoom";
 
         public static bool Load(UnityModManager.ModEntry modEntry)
         {
@@ -27,7 +26,7 @@ namespace HueRandomizer
             return true;
         }
 
-        private static void RandomizeLevels()
+        public static void RandomizeLevels()
         {
             System.Random rand = new System.Random();
             ShuffledPuzzleLevels = new List<string>(PuzzleLevels);
@@ -44,12 +43,13 @@ namespace HueRandomizer
         {
             if (current == StartingLevel)
             {
-                return ShuffledPuzzleLevels[0];
+                return FirstPuzzleLevel();
             }
 
-            if (current == EndingLevel)
+            if (current == LastPuzzleLevel())
             {
-                return ShuffledPuzzleLevels[ShuffledPuzzleLevels.Count - 1];
+                Mod.Logger.Log("Last level: " + current);
+                return EndingLevel;
             }
 
             if (!ShuffledPuzzleLevels.Contains(current))
@@ -62,26 +62,19 @@ namespace HueRandomizer
 
             idx++;
 
-            if (idx < ShuffledPuzzleLevels.Count)
-            {
-                return ShuffledPuzzleLevels[idx];
-            }
-            else
-            {
-                return EndingLevel;
-            }
+            return ShuffledPuzzleLevels[idx];
         }
 
         public static string GetPrevLevel(string current)
         {
-            if (current == StartingLevel)
+            if (current == FirstPuzzleLevel())
             {
-                return ShuffledPuzzleLevels[0];
+                return StartingLevel;
             }
 
             if (current == EndingLevel)
             {
-                return ShuffledPuzzleLevels[ShuffledPuzzleLevels.Count - 1];
+                return LastPuzzleLevel();
             }
 
             if (!ShuffledPuzzleLevels.Contains(current))
@@ -94,16 +87,17 @@ namespace HueRandomizer
 
             idx--;
 
-            if (idx > 0)
-            {
-                return ShuffledPuzzleLevels[idx];
-            }
-            else
-            {
-                return StartingLevel;
-            }
+            return ShuffledPuzzleLevels[idx];
         }
 
+        public static string FirstPuzzleLevel()
+        {
+            return ShuffledPuzzleLevels[0];
+        }
+        public static string LastPuzzleLevel()
+        {
+            return ShuffledPuzzleLevels[ShuffledPuzzleLevels.Count - 1];
+        }
         public static string MapLevelNode(string levelName)
         {
             if (!PuzzleLevels.Contains(levelName))
@@ -160,7 +154,8 @@ namespace HueRandomizer
         private static List<string> ShuffledPuzzleLevels = PuzzleLevels;
 
         private static List<string> PuzzleLevels = new List<string>(new string[] {
-            "DropThroughColour","PullTute02","JumpColour","SpikeTute03","BoulderTutorialNew01","AlternatingColourSwitch","FallThroughColours","AlternatingColourJumps02","ClimbUpColours02","BoulderDropChase02","BoulderTrap02","BasementGoo","UniGooStairs","ConveyerGoo","GooPressure","UniGooStairsDown","GooBalloonDip","GooBalloonPressure","BounceToDeath","MountainsBounceKeyRetrieve","BounceSpikePit","MountainsZigZag","BounceThwompDash","BounceCrateDrag","BouncePit","MountainsBounceLaserIntro","MountainsBounceIntro","BounceConveyer","LaserBounceChange","LaserTutorial","LaserJumpSwitch","LaserCrateBlock","LaserMovingSwitch","PipePush","PlatformBlockLasers","LaserPlatformMadness1","LaserActivatedTutorial","LaserClimb","LaserHeights","ThwompLaserRunner","LaserBalloonMaze","LeverMadness","LeverTutorial","LaserDoors","KeyTutorial","PuzzleSequence","BoxSlideMaze","AlternatingBoulders","BlackBoxDecoy","CrushOnStart","NarrowCorridorCrates","BoulderSwitchChase","CrumblingRockJump","HueDunnit","JumpAlign","SlideAcrossTheGap","BrickMaze","BalloonDecoy","BalloonMaze","BalloonSwitchJump","BalloonThwompJump","BoulderPressurepads","CrateSequence","CrateThwompRetrieve","LongCratePressure","PressurePadSlide","ThwompClimb","ThwompRunner","ThwompTrigger","ThwompTutorial","LaserPlatformMadness2","UniSlide","ThwompGooClimb","ThwompDoubleLaser","BounceGooIntro","GooBalloonCrates","MovingGoo","ThwompGoo"
+            //"DropThroughColour","PullTute02","JumpColour","SpikeTute03","BoulderTutorialNew01","AlternatingColourSwitch","FallThroughColours","AlternatingColourJumps02","ClimbUpColours02","BoulderDropChase02","BoulderTrap02","BasementGoo","UniGooStairs","ConveyerGoo","GooPressure","UniGooStairsDown","GooBalloonDip","GooBalloonPressure","BounceToDeath","MountainsBounceKeyRetrieve","BounceSpikePit","MountainsZigZag","BounceThwompDash","BounceCrateDrag","BouncePit","MountainsBounceLaserIntro","MountainsBounceIntro","BounceConveyer","LaserBounceChange","LaserTutorial","LaserJumpSwitch","LaserCrateBlock","LaserMovingSwitch","PipePush","PlatformBlockLasers","LaserPlatformMadness1","LaserActivatedTutorial","LaserClimb","LaserHeights","ThwompLaserRunner","LaserBalloonMaze","LeverMadness","LeverTutorial","LaserDoors","KeyTutorial","PuzzleSequence","BoxSlideMaze","AlternatingBoulders","BlackBoxDecoy","CrushOnStart","NarrowCorridorCrates","BoulderSwitchChase","CrumblingRockJump","HueDunnit","JumpAlign","SlideAcrossTheGap","BrickMaze","BalloonDecoy","BalloonMaze","BalloonSwitchJump","BalloonThwompJump","BoulderPressurepads","CrateSequence","CrateThwompRetrieve","LongCratePressure","PressurePadSlide","ThwompClimb","ThwompRunner","ThwompTrigger","ThwompTutorial","LaserPlatformMadness2","UniSlide","ThwompGooClimb","ThwompDoubleLaser","BounceGooIntro","GooBalloonCrates","MovingGoo","ThwompGoo"
+            "DropThroughColour"
         });
 
         private static Dictionary<string, int> LevelDict = new Dictionary<string, int>() {
@@ -169,73 +164,4 @@ namespace HueRandomizer
 
     }
 
-    [HarmonyPatch(typeof(HueSceneManager), "SaveSceneInfo")]
-    public static class HueSceneManager_SaveSceneInfo_Patch
-    {
-        public static void Prefix(ref Vector3 playerOffsetFromDoor)
-        {
-            playerOffsetFromDoor = new Vector3(0, 0, 0);
-        }
-    }
-
-    [HarmonyPatch(typeof(SaveLoadManager), "Checkpoint")]
-    public static class SaveLoadManager_Checkpoint_Patch
-    {
-        public static void Prefix(ref Vector3 doorOffset)
-        {
-            doorOffset = new Vector3(0, 0, 0);
-        }
-    }
-
-
-    [HarmonyPatch(typeof(DoorNode), "GetTarget")]
-    public static class Patch
-    {
-        public static bool Prefix(DoorNode __instance, DoorNode ___targetNode, LevelMap ___map, ref DoorNode __result)
-        {
-            LevelNode parent = __instance.GetParent();
-
-            if (Main.IsPuzzleLevel(parent))
-            {
-                int id = parent.GetDoorID(__instance);
-
-                if (id == 0)
-                {
-                    string levelString = Main.GetPrevLevel(parent.Label);
-
-                    int levelIndex = Main.GetLevelIdFromName(levelString);
-                    LevelNode levelNode = ___map.GetNodeFromIndex(levelIndex) as LevelNode;
-                    Main.Mod.Logger.Log("prev level: " + levelNode.Label);
-
-                    int targetIndex = levelNode.doors[1];
-
-                    __result = ___map.GetNodeFromIndex(targetIndex) as DoorNode;
-                    Main.Mod.Logger.Log("result: " + __result.GetParent().Label + " " + __result.GetParent().GetDoorID(__result));
-
-
-
-                }
-                else if (id == 1)
-                {
-                    string levelString = Main.GetNextLevel(parent.Label);
-
-                    int levelIndex = Main.GetLevelIdFromName(levelString);
-                    LevelNode levelNode = ___map.GetNodeFromIndex(levelIndex) as LevelNode;
-                    Main.Mod.Logger.Log("next level: " + levelNode.Label);
-
-                    int targetIndex = levelNode.doors[0];
-
-                    __result = ___map.GetNodeFromIndex(targetIndex) as DoorNode;
-                    Main.Mod.Logger.Log("result: " + __result.GetParent().Label + " " + __result.GetParent().GetDoorID(__result));
-                }
-
-            }
-            else
-            {
-                __result = ___targetNode;
-            }
-
-            return false;
-        }
-    }
 }
