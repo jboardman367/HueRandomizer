@@ -1,0 +1,523 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace HueRandomizer.DoorGraph
+{
+    public static partial class DoorGraph
+    {
+        enum Room : int
+        {
+            Village = 1,
+            Lighthouse = 3,
+            CycleHouse = 5,
+            OldLadyHouse = 8,
+            ThinHouse = 10,
+            CaveMinerArea = 15,
+            DropThroughColour = 25,
+            PullTute02 = 28,
+            JumpColour = 31,
+            SpikeTute03 = 34,
+            BoulderTutorialNew01 = 37,
+            PurpleFragmentRoom = 39,
+            AlternatingColourSwitch = 41,
+            FallThroughColours = 43,
+            AlternatingColourJumps02 = 45,
+            ClimbUpColours02 = 47,
+            OrangeFragmentRoom = 49,
+            MountainsEntrance = 57,
+            BoulderDropChase02 = 60,
+            BoulderTrap02 = 63,
+            PinkFragmentRoom = 66,
+            UniversityOutside = 69,
+            UniversityLobby = 71,
+            BasementGoo = 74,
+            UniGooStairs = 77,
+            ConveyerGoo = 80,
+            GooPressure = 83,
+            UniGooStairsDown = 86,
+            TrophyRoom = 89,
+            GooBalloonDip = 92,
+            GooBalloonPressure = 95,
+            MountainsPostBounceIntro = 99,
+            BounceToDeath = 102,
+            MountainsBounceKeyRetrieve = 105,
+            BounceSpikePit = 108,
+            MountainsZigZag = 111,
+            BounceThwompDash = 114,
+            BounceCrateDrag = 117,
+            BouncePit = 119,
+            MountainsBounceLaserIntro = 123,
+            IslandPort = 126,
+            MountainsBounceIntro = 128,
+            BounceConveyer = 131,
+            LaserBounceChange = 134,
+            LaserTutorial = 138,
+            LaserJumpSwitch = 141,
+            LaserCrateBlock = 144,
+            LaserMovingSwitch = 147,
+            PipePush = 150,
+            PlatformBlockLasers = 153,
+            LaserPlatformMadness1 = 155,
+            LaserActivatedTutorial = 157,
+            LaserClimb = 160,
+            LaserHeights = 163,
+            ThwompLaserRunner = 167,
+            LaserBalloonMaze = 169,
+            LeverMadness = 172,
+            LeverTutorial = 175,
+            LimeFragmentRoom = 180,
+            LaserDoors = 183,
+            KeyTutorial = 186,
+            SkeletonRoom = 189,
+            PuzzleSequence = 192,
+            BoxSlideMaze = 195,
+            AlternatingBoulders = 197,
+            BlackBoxDecoy = 199,
+            CrushOnStart = 201,
+            NarrowCorridorCrates = 203,
+            BoulderSwitchChase = 210,
+            CrumblingRockJump = 212,
+            HueDunnit = 214,
+            JumpAlign = 216,
+            SlideAcrossTheGap = 218,
+            BrickMaze = 220,
+            BalloonDecoy = 228,
+            BalloonMaze = 231,
+            BalloonSwitchJump = 234,
+            BalloonThwompJump = 237,
+            BoulderPressurepads = 240,
+            CrateSequence = 243,
+            CrateThwompRetrieve = 246,
+            LongCratePressure = 249,
+            PressurePadSlide = 252,
+            ThwompClimb = 255,
+            ThwompRunner = 258,
+            ThwompTrigger = 261,
+            ThwompTutorial = 264,
+            RedFragmentRoom = 267,
+            BlueFragmentRoom = 270,
+            YellowFragmentRoom = 273,
+            WaterEntrance = 277,
+            Waterfall = 280,
+            PostPurpleCorridor = 283,
+            WaterExit = 286,
+            FireIntro = 289,
+            PostPinkCorridor = 292,
+            PostRedCorridor = 295,
+            PostBlueCorridor = 298,
+            PostYellowCorridor = 301,
+            TempleIntro = 304,
+            LaserPlatformMadness2 = 307,
+            TechIntro = 310,
+            PostLimeCorridor = 313,
+            TechToLighthouse = 319,
+            TechHub = 322,
+            UniSlide = 328,
+            ThwompGooClimb = 330,
+            UniLetterCorridor = 332,
+            Courtyard1 = 335,
+            ThwompDoubleLaser = 338,
+            Courtyard2 = 341,
+            BounceGooIntro = 344,
+            GooBalloonCrates = 347,
+            MovingGoo = 350,
+            Courtyard3 = 353,
+            ThwompGoo = 356,
+            HiddenDoorCorridor = 359,
+            SecretRoom = 363,
+            MumRoom = 367,
+            LocalisationTestScene = 370,
+            UniRooftop = 372
+        }
+        static readonly Room[] puzzleRooms = new Room[]
+        {
+            Room.DropThroughColour,Room.PullTute02,Room.JumpColour,Room.SpikeTute03,Room.BoulderTutorialNew01,Room.AlternatingColourSwitch,Room.FallThroughColours,Room.AlternatingColourJumps02,Room.ClimbUpColours02,Room.BoulderDropChase02,Room.BoulderTrap02,Room.BasementGoo,Room.UniGooStairs,Room.ConveyerGoo,Room.GooPressure,Room.UniGooStairsDown,Room.GooBalloonDip,Room.GooBalloonPressure,Room.BounceToDeath,Room.MountainsBounceKeyRetrieve,Room.BounceSpikePit,Room.MountainsZigZag,Room.BounceThwompDash,Room.BounceCrateDrag,Room.BouncePit,Room.MountainsBounceLaserIntro,Room.MountainsBounceIntro,Room.BounceConveyer,Room.LaserBounceChange,Room.LaserTutorial,Room.LaserJumpSwitch,Room.LaserCrateBlock,Room.LaserMovingSwitch,Room.PipePush,Room.PlatformBlockLasers,Room.LaserPlatformMadness1,Room.LaserActivatedTutorial,Room.LaserClimb,Room.LaserHeights,Room.ThwompLaserRunner,Room.LaserBalloonMaze,Room.LeverMadness,Room.LeverTutorial,Room.LaserDoors,Room.KeyTutorial,Room.PuzzleSequence,Room.BoxSlideMaze,Room.AlternatingBoulders,Room.BlackBoxDecoy,Room.CrushOnStart,Room.NarrowCorridorCrates,Room.BoulderSwitchChase,Room.CrumblingRockJump,Room.HueDunnit,Room.JumpAlign,Room.SlideAcrossTheGap,Room.BrickMaze,Room.BalloonDecoy,Room.BalloonMaze,Room.BalloonSwitchJump,Room.BalloonThwompJump,Room.BoulderPressurepads,Room.CrateSequence,Room.CrateThwompRetrieve,Room.LongCratePressure,Room.PressurePadSlide,Room.ThwompClimb,Room.ThwompRunner,Room.ThwompTrigger,Room.ThwompTutorial,Room.LaserPlatformMadness2,Room.UniSlide,Room.ThwompGooClimb,Room.ThwompDoubleLaser,Room.BounceGooIntro,Room.GooBalloonCrates,Room.MovingGoo,Room.ThwompGoo
+        };
+        static readonly Room[] allRooms = (Room[])Enum.GetValues(typeof(Room));
+
+        // direct mapping of door (int) to Door object
+        static readonly Dictionary<int, Door> doorMapping = new Dictionary<int, Door>()
+        {
+            /************************** Village *******************************************/
+            {
+                getDoor(Room.Village, 0),
+                new Door(getDoor(Room.Lighthouse, 0), new IndirectConnection[] 
+                {
+                    new IndirectConnection(getDoor(Room.Village, 1),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 2),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 3),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 4),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 5),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 6),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.Village, 1),
+                new Door(getDoor(Room.CycleHouse, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Village, 0),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 2),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 3),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 4),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 5),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 6),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.Village, 2),
+                new Door(getDoor(Room.OldLadyHouse, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Village, 1),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 0),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 3),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 4),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 5),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 6),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.Village, 3),
+                new Door(getDoor(Room.ThinHouse, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Village, 1),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 2),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 0),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 4),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 5),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 6),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.Village, 4),
+                new Door(getDoor(Room.ThinHouse, 1), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Village, 1),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 2),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 3),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 0),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 5),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 6),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.Village, 5),
+                new Door(getDoor(Room.CaveMinerArea, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Village, 1),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 2),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 3),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 4),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 0),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 6),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.Village, 6),
+                new Door(getDoor(Room.IslandPort, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Village, 1),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 2),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 3),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 4),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 5),
+                        any,
+                        any,
+                        any),
+                    new IndirectConnection(getDoor(Room.Village, 0),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            /************************** Lighthouse *******************************************/
+            {
+                getDoor(Room.Lighthouse, 0),
+                new Door(getDoor(Room.Village, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Lighthouse, 1),
+                        green,
+                        green,
+                        green),
+                })
+            },
+            {
+                getDoor(Room.Lighthouse, 1),
+                new Door(getDoor(Room.TechToLighthouse, 1), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.Lighthouse, 0),
+                        green,
+                        green,
+                        green),
+                })
+            },
+            /************************** CycleHouse *******************************************/
+            {
+                getDoor(Room.CycleHouse, 0),
+                new Door(getDoor(Room.Village, 1), new IndirectConnection[] { })
+            },
+            /************************** OldLadyHouse *******************************************/
+            {
+                getDoor(Room.OldLadyHouse, 0),
+                new Door(getDoor(Room.Village, 2), new IndirectConnection[] { })
+            },
+            /************************** ThinHouse *******************************************/
+            {
+                getDoor(Room.ThinHouse, 0),
+                new Door(getDoor(Room.Village, 3), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.ThinHouse, 1),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            {
+                getDoor(Room.ThinHouse, 1),
+                new Door(getDoor(Room.Village, 4), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.ThinHouse, 0),
+                        any,
+                        any,
+                        any),
+                })
+            },
+            /************************** CaveMinerArea *******************************************/
+            {
+                getDoor(Room.CaveMinerArea, 0),
+                new Door(getDoor(Room.Village, 5), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                        aqua,
+                        aqua,
+                        aqua),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                        impossible,
+                        impossible,
+                        impossible),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                        aquaOrange,
+                        aquaOrange,
+                        aquaOrange),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                        impossible,
+                        impossible,
+                        aquaOrange),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                        aquaOrangeRed,
+                        aquaOrangeRed,
+                        aquaOrangeRed),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                        impossible,
+                        impossible,
+                        aquaOrangeRed),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                        aquaOrangeYellow,
+                        aquaOrangeYellow,
+                        aquaOrangeYellow),
+                })
+            },
+            {
+                getDoor(Room.CaveMinerArea, 1),
+                new Door(getDoor(Room.WaterEntrance, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                        aqua,
+                        aqua,
+                        aqua),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                        impossible,
+                        impossible,
+                        impossible),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                        orange,
+                        orange,
+                        orange),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                        impossible,
+                        impossible,
+                        orange),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                        orangeRed,
+                        orangeRed,
+                        orangeRed),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                        impossible,
+                        impossible,
+                        orangeRed),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                        orangeYellow,
+                        orangeYellow,
+                        orangeYellow),
+                })
+            },
+            {
+                getDoor(Room.CaveMinerArea, 2),
+                new Door(getDoor(Room.WaterExit, 1), new IndirectConnection[]
+                {
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                        aqua,
+                        aqua,
+                        aqua),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                        aqua,
+                        aqua,
+                        aqua),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                        aquaOrange,
+                        aquaOrange,
+                        aquaOrange),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                        impossible,
+                        impossible,
+                        aquaOrange),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                        aquaOrangeRed,
+                        aquaOrangeRed,
+                        aquaOrangeRed),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                        impossible,
+                        impossible,
+                        aquaOrangeRed),
+                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                        aquaOrangeYellow,
+                        aquaOrangeYellow,
+                        aquaOrangeYellow),
+                })
+            },
+
+        };
+
+        static readonly uint[] impossible = new uint[] { };
+        static readonly uint[] any = new uint[] { 0 };
+        static readonly uint[] green = new uint[] { (uint)Constraints.Green };
+        static readonly uint[] aqua = new uint[] { (uint)Constraints.Aqua };
+        static readonly uint[] aquaOrange = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange) };
+        static readonly uint[] aquaOrangeRed = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange | Constraints.Red) };
+        static readonly uint[] aquaOrangeYellow = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange | Constraints.Yellow) };
+        static readonly uint[] orange = new uint[] { (uint)Constraints.Aqua };
+        static readonly uint[] orangeRed = new uint[] { (uint)(Constraints.Orange | Constraints.Red) };
+        static readonly uint[] orangeYellow = new uint[] { (uint)(Constraints.Orange | Constraints.Yellow) };
+    }
+}
