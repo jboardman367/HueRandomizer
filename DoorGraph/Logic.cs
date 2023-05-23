@@ -8,17 +8,16 @@ namespace HueRandomizer.DoorGraph
 {
     public static partial class DoorGraph
     {
-        enum Constraints : uint
+        public class Constraints
         {
-            Aqua = 1 << 0,
-            Purple = 1 << 1,
-            Orange = 1 << 2,
-            Pink = 1 << 3,
-            Red = 1 << 4,
-            Blue = 1 << 5,
-            Yellow = 1 << 6,
-            Green = 1 << 7,
-            NoneOf = 1 << 8,
+            public bool aqua;
+            public bool purple;
+            public bool orange;
+            public bool pink;
+            public bool red;
+            public bool blue;
+            public bool yellow;
+            public bool green;
         }
 
         public readonly struct DoorRef : IEquatable<DoorRef>
@@ -58,7 +57,7 @@ namespace HueRandomizer.DoorGraph
 
         public readonly struct IndirectConnection
         {
-            public IndirectConnection(DoorRef door, uint[] casualConstraint, uint[] nwjConstraint, uint[] anyConstraint)
+            public IndirectConnection(DoorRef door, Func<Constraints, bool> casualConstraint, Func<Constraints, bool> nwjConstraint, Func<Constraints, bool> anyConstraint)
             {
                 this.door = door;
                 this.casualConstraint = casualConstraint;
@@ -66,10 +65,10 @@ namespace HueRandomizer.DoorGraph
                 this.anyConstraint = anyConstraint;
             }
             public readonly DoorRef door;
-            // 1 for required, 0 for not required
-            public readonly uint[] casualConstraint;  // No tricks
-            public readonly uint[] nwjConstraint;  // nwj tricks
-            public readonly uint[] anyConstraint;  // unrestricted tricks
+            // returns true if possible
+            public readonly Func<Constraints, bool> casualConstraint;  // No tricks
+            public readonly Func<Constraints, bool> nwjConstraint;  // nwj tricks
+            public readonly Func<Constraints, bool> anyConstraint;  // unrestricted tricks
         }
 
         public static bool getTarget(int levelId, int doorNum, out int newLevelId, out int newDoorNum)

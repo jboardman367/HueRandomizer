@@ -1272,7 +1272,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.MountainsBounceKeyRetrieve, 1),
                         anyTwo,
                         anyTwo,
-                        blueOrange_or_anyOther),
+                        orangeBlue_or_anyOther),
                 })
             },
             {
@@ -1280,9 +1280,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.BounceSpikePit, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.MountainsBounceKeyRetrieve, 0),
-                        blueOrange_or_anyOther,
-                        blueOrange_or_anyOther,
-                        blueOrange_or_anyOther),
+                        orangeBlue_or_anyOther,
+                        orangeBlue_or_anyOther,
+                        orangeBlue_or_anyOther),
                 })
             },
             /************************** BounceSpikePit *******************************************/
@@ -1372,65 +1372,68 @@ namespace HueRandomizer.DoorGraph
 
         };
 
-        static readonly uint[] impossible = new uint[] { };
-        static readonly uint[] any = new uint[] { 0 };
-        static readonly uint[] green = new uint[] { (uint)Constraints.Green };
-        static readonly uint[] aqua = new uint[] { (uint)Constraints.Aqua };
-        static readonly uint[] purple = new uint[] { (uint)Constraints.Purple };
-        static readonly uint[] aquaOrange = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange) };
-        static readonly uint[] aquaYellow = new uint[] { (uint)(Constraints.Aqua | Constraints.Yellow) };
-        static readonly uint[] aquaRedYellow = new uint[] { (uint)(Constraints.Aqua | Constraints.Red | Constraints.Yellow) };
-        static readonly uint[] purpleGreen_or_purpleYellow_or_pinkBlueGreen_or_pinkBlueYellow = new uint[] { (uint)(Constraints.Purple | Constraints.Green), (uint)(Constraints.Purple | Constraints.Yellow), (uint)(Constraints.Pink | Constraints.Blue | Constraints.Green), (uint)(Constraints.Pink | Constraints.Blue | Constraints.Yellow), };
-        static readonly uint[] purpleOrange = new uint[] { (uint)(Constraints.Purple | Constraints.Orange) };
-        static readonly uint[] aquaPurple = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple) };
-        static readonly uint[] purpleBlueYellow = new uint[] { (uint)(Constraints.Purple | Constraints.Blue | Constraints.Yellow) };
-        static readonly uint[] aquaYellowGreen = new uint[] { (uint)(Constraints.Aqua | Constraints.Yellow | Constraints.Green) };
-        static readonly uint[] redBlueGreen = new uint[] { (uint)(Constraints.Red | Constraints.Blue | Constraints.Green) };
-        static readonly uint[] aquaPurpleOrangeRedGreen = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple | Constraints.Orange | Constraints.Red | Constraints.Green) };
-        static readonly uint[] aquaPurpleOrangeYellow = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple | Constraints.Orange | Constraints.Yellow) };
-        static readonly uint[] aquaOrangeRed = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange | Constraints.Red) };
-        static readonly uint[] purpleOrangeRed = new uint[] { (uint)(Constraints.Purple | Constraints.Orange | Constraints.Red) };
-        static readonly uint[] aquaOrangePink = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange | Constraints.Pink) };
-        static readonly uint[] aquaOrangeYellow = new uint[] { (uint)(Constraints.Aqua | Constraints.Orange | Constraints.Yellow) };
-        static readonly uint[] aquaYellow_or_purpleYellow_or_orangeYellow = new uint[] { (uint)(Constraints.Aqua | Constraints.Yellow), (uint)(Constraints.Purple | Constraints.Yellow), (uint)(Constraints.Orange | Constraints.Yellow) };
-        static readonly uint[] orange = new uint[] { (uint)Constraints.Aqua };
-        static readonly uint[] orangeRed = new uint[] { (uint)(Constraints.Orange | Constraints.Red) };
-        static readonly uint[] orangeYellow = new uint[] { (uint)(Constraints.Orange | Constraints.Yellow) };
-        static readonly uint[] red = new uint[] { (uint)Constraints.Red };
-        static readonly uint[] yellow = new uint[] { (uint)Constraints.Yellow };
-        static readonly uint[] redYellow = new uint[] { (uint)(Constraints.Red | Constraints.Yellow) };
+        static readonly Func<Constraints, bool>
+            impossible = (Constraints c) => false,
+            any = (Constraints c) => true,
+            green = (Constraints c) => c.green,
+            aqua = (Constraints c) => c.aqua,
+            purple = (Constraints c) => c.purple,
+            aquaOrange = (Constraints c) => c.aqua && c.orange,
+            aquaYellow = (Constraints c) => c.aqua && c.yellow,
+            aquaRedYellow = (Constraints c) => c.aqua && c.red && c.yellow,
+            purpleGreen_or_purpleYellow_or_pinkBlueGreen_or_pinkBlueYellow = (Constraints c) => c.purple && c.green || c.purple && c.yellow || c.pink && c.blue && c.green || c.pink && c.blue && c.yellow,
+            purpleOrange = (Constraints c) => c.purple && c.orange,
+            aquaPurple = (Constraints c) => c.aqua && c.purple,
+            purpleBlueYellow = (Constraints c) => c.purple && c.blue && c.yellow,
+            aquaYellowGreen = (Constraints c) => c.aqua && c.yellow && c.green,
+            redBlueGreen = (Constraints c) => c.red && c.blue && c.green,
+            aquaPurpleOrangeRedGreen = (Constraints c) => c.aqua && c.purple && c.orange && c.red && c.green,
+            aquaPurpleOrangeYellow = (Constraints c) => c.aqua && c.purple && c.orange && c.yellow,
+            aquaOrangeRed = (Constraints c) => c.aqua && c.orange && c.red,
+            purpleOrangeRed = (Constraints c) => c.purple && c.orange && c.red,
+            aquaOrangePink = (Constraints c) => c.aqua && c.orange && c.pink,
+            aquaOrangeYellow = (Constraints c) => c.aqua && c.orange && c.yellow,
+            aquaYellow_or_purpleYellow_or_orangeYellow = (Constraints c) => c.aqua && c.yellow || c.purple && c.yellow || c.orange && c.yellow,
+            orange = (Constraints c) => c.orange,
+            orangeRed = (Constraints c) => c.orange && c.red,
+            orangeYellow = (Constraints c) => c.orange && c.yellow,
+            red = (Constraints c) => c.red,
+            yellow = (Constraints c) => c.yellow,
+            redYellow = (Constraints c) => c.red && c.yellow,
 
-        static readonly uint[] anyTwo = new uint[]
-        {
-            (1 << 0) | (1 << 1),
-            (1 << 0) | (1 << 2),  (1 << 1) | (1 << 2),
-            (1 << 0) | (1 << 3),  (1 << 1) | (1 << 3),  (1 << 2) | (1 << 3),
-            (1 << 0) | (1 << 4),  (1 << 1) | (1 << 4),  (1 << 2) | (1 << 4),  (1 << 3) | (1 << 4),
-            (1 << 0) | (1 << 5),  (1 << 1) | (1 << 5),  (1 << 2) | (1 << 5),  (1 << 3) | (1 << 5),  (1 << 4) | (1 << 5),
-            (1 << 0) | (1 << 6),  (1 << 1) | (1 << 6),  (1 << 2) | (1 << 6),  (1 << 3) | (1 << 6),  (1 << 4) | (1 << 6),  (1 << 5) | (1 << 6),
-            (1 << 0) | (1 << 7),  (1 << 1) | (1 << 7),  (1 << 2) | (1 << 7),  (1 << 3) | (1 << 7),  (1 << 4) | (1 << 7),  (1 << 5) | (1 << 7),  (1 << 6) | (1 << 7),
-        };
+            anyTwo = (Constraints c) =>
+                c.aqua && (c.purple || c.orange || c.pink || c.red || c.blue || c.yellow || c.green)
+                || c.purple && (c.orange || c.pink || c.red || c.blue || c.yellow || c.green)
+                || c.orange && (c.pink || c.red || c.blue || c.yellow || c.green)
+                || c.pink && (c.red || c.blue || c.yellow || c.green)
+                || c.red && (c.blue || c.yellow || c.green)
+                || c.blue && (c.yellow || c.green)
+                || c.yellow && c.green,
 
-        static readonly uint[] aqua_plus_any = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple), (uint)(Constraints.Aqua | Constraints.Orange), (uint)(Constraints.Aqua | Constraints.Pink), (uint)(Constraints.Aqua | Constraints.Red), (uint)(Constraints.Aqua | Constraints.Blue), (uint)(Constraints.Aqua | Constraints.Yellow), (uint)(Constraints.Aqua | Constraints.Green), };
-        
-        static readonly uint[] aqua_plus_any_or_red_plus_any = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple), (uint)(Constraints.Aqua | Constraints.Orange), (uint)(Constraints.Aqua | Constraints.Pink), (uint)(Constraints.Aqua | Constraints.Red), (uint)(Constraints.Aqua | Constraints.Blue), (uint)(Constraints.Aqua | Constraints.Yellow), (uint)(Constraints.Aqua | Constraints.Green),
-        (uint)(Constraints.Red | Constraints.Purple), (uint)(Constraints.Red | Constraints.Orange), (uint)(Constraints.Red | Constraints.Pink), (uint)(Constraints.Red | Constraints.Blue), (uint)(Constraints.Red | Constraints.Yellow), (uint)(Constraints.Red | Constraints.Green),};
-        
-        static readonly uint[] purple_plus_any_or_orange_plus_any = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple), (uint)(Constraints.Purple | Constraints.Orange), (uint)(Constraints.Purple | Constraints.Pink), (uint)(Constraints.Purple | Constraints.Red), (uint)(Constraints.Purple | Constraints.Blue), (uint)(Constraints.Purple | Constraints.Yellow), (uint)(Constraints.Purple | Constraints.Green),
-        (uint)(Constraints.Orange | Constraints.Aqua), (uint)(Constraints.Red | Constraints.Orange), (uint)(Constraints.Orange | Constraints.Pink), (uint)(Constraints.Orange | Constraints.Blue), (uint)(Constraints.Orange | Constraints.Yellow), (uint)(Constraints.Orange | Constraints.Green),};
-        
-        static readonly uint[] blue_plus_any = new uint[] { (uint)(Constraints.Blue | Constraints.Purple), (uint)(Constraints.Blue | Constraints.Orange), (uint)(Constraints.Blue | Constraints.Pink), (uint)(Constraints.Blue | Constraints.Red), (uint)(Constraints.Aqua | Constraints.Blue), (uint)(Constraints.Blue | Constraints.Yellow), (uint)(Constraints.Blue | Constraints.Green), };
+            aqua_plus_any = (Constraints c) => c.aqua && (c.purple || c.orange || c.pink || c.red || c.blue || c.yellow || c.green),
 
-        static readonly uint[] aquaPurple_or_anyOther = new uint[] { (uint)(Constraints.Aqua | Constraints.Purple), (uint)(Constraints.Orange), (uint)(Constraints.Pink), (uint)(Constraints.Red), (uint)(Constraints.Blue), (uint)(Constraints.Yellow), (uint)(Constraints.Green), };
-        
-        static readonly uint[] blueOrange_or_anyOther = new uint[] { (uint)(Constraints.Blue | Constraints.Orange), (uint)(Constraints.Aqua), (uint)(Constraints.Purple), (uint)(Constraints.Pink), (uint)(Constraints.Red), (uint)(Constraints.Yellow), (uint)(Constraints.Green), };
+            aqua_plus_any_or_red_plus_any = (Constraints c) =>
+                c.aqua && (c.purple || c.orange || c.pink || c.red || c.blue || c.yellow || c.green)
+                || c.red && (c.purple || c.orange || c.pink || c.blue || c.yellow || c.green),
 
-        static readonly uint[] not_only_purple = new uint[] { (uint)(Constraints.NoneOf | Constraints.Purple) | (uint)(Constraints.Purple | Constraints.Aqua), (uint)(Constraints.Purple | Constraints.Orange), (uint)(Constraints.Purple | Constraints.Pink), (uint)(Constraints.Purple | Constraints.Red), (uint)(Constraints.Purple | Constraints.Blue), (uint)(Constraints.Purple | Constraints.Yellow), (uint)(Constraints.Purple | Constraints.Green), };
-        
-        static readonly uint[] not_only_blue = new uint[] { (uint)(Constraints.NoneOf | Constraints.Blue) | (uint)(Constraints.Blue | Constraints.Aqua), (uint)(Constraints.Blue | Constraints.Orange), (uint)(Constraints.Blue | Constraints.Pink), (uint)(Constraints.Blue | Constraints.Red), (uint)(Constraints.Purple | Constraints.Blue), (uint)(Constraints.Blue | Constraints.Yellow), (uint)(Constraints.Blue | Constraints.Green), };
+            purple_plus_any_or_orange_plus_any = (Constraints c) =>
+                c.purple && (c.aqua || c.orange || c.pink || c.red || c.blue || c.yellow || c.green)
+                || c.orange && (c.aqua || c.pink || c.red || c.blue || c.yellow || c.green),
 
-        static readonly uint[] purpleOrange_plus_any = new uint[] { (uint)(Constraints.Purple | Constraints.Orange | Constraints.Aqua), (uint)(Constraints.Purple | Constraints.Orange | Constraints.Pink), (uint)(Constraints.Purple | Constraints.Orange | Constraints.Red), (uint)(Constraints.Purple | Constraints.Orange | Constraints.Blue), (uint)(Constraints.Purple | Constraints.Orange | Constraints.Yellow), (uint)(Constraints.Purple | Constraints.Orange | Constraints.Green), };
+            blue_plus_any = (Constraints c) => c.blue && (c.aqua || c.purple || c.orange || c.pink || c.red || c.yellow || c.green),
 
-        static readonly uint[] redGreen_plus_any = new uint[] { (uint)(Constraints.Red | Constraints.Green | Constraints.Aqua), (uint)(Constraints.Red | Constraints.Green | Constraints.Purple), (uint)(Constraints.Red | Constraints.Green | Constraints.Orange), (uint)(Constraints.Red | Constraints.Green | Constraints.Pink), (uint)(Constraints.Red | Constraints.Green | Constraints.Blue), (uint)(Constraints.Red | Constraints.Green | Constraints.Yellow), };
+            aquaPurple_or_anyOther = (Constraints c) => c.aqua && c.purple || c.orange || c.pink || c.red || c.blue || c.yellow || c.green,
+
+            orangeBlue_or_anyOther = (Constraints c) => c.orange && c.blue || c.aqua || c.purple || c.pink || c.red || c.yellow || c.green,
+
+            not_only_purple = (Constraints c) => !c.purple || c.purple && (c.aqua || c.orange || c.pink || c.red || c.blue || c.yellow || c.green),
+
+
+            not_only_blue = (Constraints c) => !c.blue || c.blue && (c.aqua || c.purple || c.orange || c.pink || c.red || c.yellow || c.green),
+
+            purpleOrange_plus_any = (Constraints c) => c.purple && c.orange && (c.aqua || c.pink || c.red || c.blue || c.yellow || c.green),
+
+            redGreen_plus_any = (Constraints c) => c.red && c.green && (c.aqua || c.purple || c.orange || c.pink || c.blue || c.yellow)
+            ;
     }
 }
