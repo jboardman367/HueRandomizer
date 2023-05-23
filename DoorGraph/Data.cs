@@ -7,7 +7,7 @@ namespace HueRandomizer.DoorGraph
 {
     public static partial class DoorGraph
     {
-        enum Room : int
+        public enum Room : int
         {
             Village = 1,
             Lighthouse = 3,
@@ -136,215 +136,215 @@ namespace HueRandomizer.DoorGraph
         };
         static readonly Room[] allRooms = (Room[])Enum.GetValues(typeof(Room));
 
-        // direct mapping of door (int) to Door object
-        static readonly Dictionary<int, Door> doorMapping = new Dictionary<int, Door>()
+        // direct mapping of DoorRef struct to Door object
+        static readonly Dictionary<DoorRef, Door> doorMapping = new Dictionary<DoorRef, Door>()
         {
             /************************** Village *******************************************/
             {
-                getDoor(Room.Village, 0),
-                new Door(getDoor(Room.Lighthouse, 0), new IndirectConnection[] 
+                new DoorRef(Room.Village, 0),
+                new Door(new DoorRef(Room.Lighthouse, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 1),
+                    new IndirectConnection(new DoorRef(Room.Village, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 2),
+                    new IndirectConnection(new DoorRef(Room.Village, 2),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 3),
+                    new IndirectConnection(new DoorRef(Room.Village, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 4),
+                    new IndirectConnection(new DoorRef(Room.Village, 4),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 5),
+                    new IndirectConnection(new DoorRef(Room.Village, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 6),
+                    new IndirectConnection(new DoorRef(Room.Village, 6),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.Village, 1),
-                new Door(getDoor(Room.CycleHouse, 0), new IndirectConnection[]
+                new DoorRef(Room.Village, 1),
+                new Door(new DoorRef(Room.CycleHouse, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 0),
+                    new IndirectConnection(new DoorRef(Room.Village, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 2),
+                    new IndirectConnection(new DoorRef(Room.Village, 2),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 3),
+                    new IndirectConnection(new DoorRef(Room.Village, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 4),
+                    new IndirectConnection(new DoorRef(Room.Village, 4),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 5),
+                    new IndirectConnection(new DoorRef(Room.Village, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 6),
+                    new IndirectConnection(new DoorRef(Room.Village, 6),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.Village, 2),
-                new Door(getDoor(Room.OldLadyHouse, 0), new IndirectConnection[]
+                new DoorRef(Room.Village, 2),
+                new Door(new DoorRef(Room.OldLadyHouse, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 1),
+                    new IndirectConnection(new DoorRef(Room.Village, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 0),
+                    new IndirectConnection(new DoorRef(Room.Village, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 3),
+                    new IndirectConnection(new DoorRef(Room.Village, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 4),
+                    new IndirectConnection(new DoorRef(Room.Village, 4),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 5),
+                    new IndirectConnection(new DoorRef(Room.Village, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 6),
+                    new IndirectConnection(new DoorRef(Room.Village, 6),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.Village, 3),
-                new Door(getDoor(Room.ThinHouse, 0), new IndirectConnection[]
+                new DoorRef(Room.Village, 3),
+                new Door(new DoorRef(Room.ThinHouse, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 1),
+                    new IndirectConnection(new DoorRef(Room.Village, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 2),
+                    new IndirectConnection(new DoorRef(Room.Village, 2),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 0),
+                    new IndirectConnection(new DoorRef(Room.Village, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 4),
+                    new IndirectConnection(new DoorRef(Room.Village, 4),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 5),
+                    new IndirectConnection(new DoorRef(Room.Village, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 6),
+                    new IndirectConnection(new DoorRef(Room.Village, 6),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.Village, 4),
-                new Door(getDoor(Room.ThinHouse, 1), new IndirectConnection[]
+                new DoorRef(Room.Village, 4),
+                new Door(new DoorRef(Room.ThinHouse, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 1),
+                    new IndirectConnection(new DoorRef(Room.Village, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 2),
+                    new IndirectConnection(new DoorRef(Room.Village, 2),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 3),
+                    new IndirectConnection(new DoorRef(Room.Village, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 0),
+                    new IndirectConnection(new DoorRef(Room.Village, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 5),
+                    new IndirectConnection(new DoorRef(Room.Village, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 6),
+                    new IndirectConnection(new DoorRef(Room.Village, 6),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.Village, 5),
-                new Door(getDoor(Room.CaveMinerArea, 0), new IndirectConnection[]
+                new DoorRef(Room.Village, 5),
+                new Door(new DoorRef(Room.CaveMinerArea, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 1),
+                    new IndirectConnection(new DoorRef(Room.Village, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 2),
+                    new IndirectConnection(new DoorRef(Room.Village, 2),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 3),
+                    new IndirectConnection(new DoorRef(Room.Village, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 4),
+                    new IndirectConnection(new DoorRef(Room.Village, 4),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 0),
+                    new IndirectConnection(new DoorRef(Room.Village, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 6),
+                    new IndirectConnection(new DoorRef(Room.Village, 6),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.Village, 6),
-                new Door(getDoor(Room.IslandPort, 0), new IndirectConnection[]
+                new DoorRef(Room.Village, 6),
+                new Door(new DoorRef(Room.IslandPort, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Village, 1),
+                    new IndirectConnection(new DoorRef(Room.Village, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 2),
+                    new IndirectConnection(new DoorRef(Room.Village, 2),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 3),
+                    new IndirectConnection(new DoorRef(Room.Village, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 4),
+                    new IndirectConnection(new DoorRef(Room.Village, 4),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 5),
+                    new IndirectConnection(new DoorRef(Room.Village, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.Village, 0),
+                    new IndirectConnection(new DoorRef(Room.Village, 0),
                         any,
                         any,
                         any),
@@ -352,20 +352,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** Lighthouse *******************************************/
             {
-                getDoor(Room.Lighthouse, 0),
-                new Door(getDoor(Room.Village, 0), new IndirectConnection[]
+                new DoorRef(Room.Lighthouse, 0),
+                new Door(new DoorRef(Room.Village, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Lighthouse, 1),
+                    new IndirectConnection(new DoorRef(Room.Lighthouse, 1),
                         green,
                         green,
                         green),
                 })
             },
             {
-                getDoor(Room.Lighthouse, 1),
-                new Door(getDoor(Room.TechToLighthouse, 1), new IndirectConnection[]
+                new DoorRef(Room.Lighthouse, 1),
+                new Door(new DoorRef(Room.TechToLighthouse, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.Lighthouse, 0),
+                    new IndirectConnection(new DoorRef(Room.Lighthouse, 0),
                         green,
                         green,
                         green),
@@ -373,30 +373,30 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** CycleHouse *******************************************/
             {
-                getDoor(Room.CycleHouse, 0),
-                new Door(getDoor(Room.Village, 1), new IndirectConnection[] { })
+                new DoorRef(Room.CycleHouse, 0),
+                new Door(new DoorRef(Room.Village, 1), new IndirectConnection[] { })
             },
             /************************** OldLadyHouse *******************************************/
             {
-                getDoor(Room.OldLadyHouse, 0),
-                new Door(getDoor(Room.Village, 2), new IndirectConnection[] { })
+                new DoorRef(Room.OldLadyHouse, 0),
+                new Door(new DoorRef(Room.Village, 2), new IndirectConnection[] { })
             },
             /************************** ThinHouse *******************************************/
             {
-                getDoor(Room.ThinHouse, 0),
-                new Door(getDoor(Room.Village, 3), new IndirectConnection[]
+                new DoorRef(Room.ThinHouse, 0),
+                new Door(new DoorRef(Room.Village, 3), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.ThinHouse, 1),
+                    new IndirectConnection(new DoorRef(Room.ThinHouse, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.ThinHouse, 1),
-                new Door(getDoor(Room.Village, 4), new IndirectConnection[]
+                new DoorRef(Room.ThinHouse, 1),
+                new Door(new DoorRef(Room.Village, 4), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.ThinHouse, 0),
+                    new IndirectConnection(new DoorRef(Room.ThinHouse, 0),
                         any,
                         any,
                         any),
@@ -404,272 +404,272 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** CaveMinerArea *******************************************/
             {
-                getDoor(Room.CaveMinerArea, 0),
-                new Door(getDoor(Room.Village, 5), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 0),
+                new Door(new DoorRef(Room.Village, 5), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         aqua,
                         aqua,
                         aqua),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         aquaOrange,
                         aquaOrange,
                         aquaOrange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         aquaOrange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         aquaOrangeRed,
                         aquaOrangeRed,
                         aquaOrangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         aquaOrangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         aquaOrangeYellow,
                         aquaOrangeYellow,
                         aquaOrangeYellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 1),
-                new Door(getDoor(Room.WaterEntrance, 0), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 1),
+                new Door(new DoorRef(Room.WaterEntrance, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aqua,
                         aqua,
                         aqua),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         orange,
                         orange,
                         orange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         orange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         orangeRed,
                         orangeRed,
                         orangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         orangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         orangeYellow,
                         orangeYellow,
                         orangeYellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 2),
-                new Door(getDoor(Room.WaterExit, 1), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 2),
+                new Door(new DoorRef(Room.WaterExit, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         aqua,
                         aqua,
                         aqua),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aqua,
                         aqua,
                         aqua),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         aquaOrange,
                         aquaOrange,
                         aquaOrange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         aquaOrange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         aquaOrangeRed,
                         aquaOrangeRed,
                         aquaOrangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         aquaOrangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         aquaOrangeYellow,
                         aquaOrangeYellow,
                         aquaOrangeYellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 3),
-                new Door(getDoor(Room.FireIntro, 0), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 3),
+                new Door(new DoorRef(Room.FireIntro, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         orange,
                         orange,
                         orange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aquaOrange,
                         aquaOrange,
                         aquaOrange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         any),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         red,
                         red,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         yellow,
                         yellow,
                         yellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 4),
-                new Door(getDoor(Room.PostRedCorridor, 1), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 4),
+                new Door(new DoorRef(Room.PostRedCorridor, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         orange,
                         orange,
                         orange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aquaOrange,
                         aquaOrange,
                         aquaOrange),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         red,
                         red,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         yellow,
                         yellow,
                         yellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 5),
-                new Door(getDoor(Room.TempleIntro, 0), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 5),
+                new Door(new DoorRef(Room.TempleIntro, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         orangeRed,
                         orangeRed,
                         orangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         red,
                         red,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aquaOrangeRed,
                         aquaOrangeRed,
                         aquaOrangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         any),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         redYellow,
                         redYellow,
                         redYellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 6),
-                new Door(getDoor(Room.PostYellowCorridor, 1), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 6),
+                new Door(new DoorRef(Room.PostYellowCorridor, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         orangeRed,
                         orangeRed,
                         orangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         red,
                         red,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         red),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aquaOrangeRed,
                         aquaOrangeRed,
                         aquaOrangeRed),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 7),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         redYellow,
                         redYellow,
                         redYellow),
                 })
             },
             {
-                getDoor(Room.CaveMinerArea, 7),
-                new Door(getDoor(Room.TechHub, 0), new IndirectConnection[]
+                new DoorRef(Room.CaveMinerArea, 7),
+                new Door(new DoorRef(Room.TechHub, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 1),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 1),
                         orangeYellow,
                         orangeYellow,
                         orangeYellow),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 2),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 2),
                         impossible,
                         impossible,
                         impossible),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 0),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 0),
                         aquaOrangeYellow,
                         aquaOrangeYellow,
                         aquaOrangeYellow),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 4),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
                         yellow),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 5),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         redYellow,
                         redYellow,
                         redYellow),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 6),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
                         redYellow),
-                    new IndirectConnection(getDoor(Room.CaveMinerArea, 3),
+                    new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
                         yellow,
                         yellow,
                         yellow),
@@ -677,20 +677,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** DropThroughColour *******************************************/
             {
-                getDoor(Room.DropThroughColour, 0),
-                new Door(getDoor(Room.Waterfall, 1), new IndirectConnection[]
+                new DoorRef(Room.DropThroughColour, 0),
+                new Door(new DoorRef(Room.Waterfall, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.DropThroughColour, 1),
+                    new IndirectConnection(new DoorRef(Room.DropThroughColour, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.DropThroughColour, 1),
-                new Door(getDoor(Room.PullTute02, 0), new IndirectConnection[]
+                new DoorRef(Room.DropThroughColour, 1),
+                new Door(new DoorRef(Room.PullTute02, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.DropThroughColour, 0),
+                    new IndirectConnection(new DoorRef(Room.DropThroughColour, 0),
                         aqua_plus_any,
                         aqua_plus_any,
                         aqua_plus_any),
@@ -698,20 +698,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** PullTute02 *******************************************/
             {
-                getDoor(Room.PullTute02, 0),
-                new Door(getDoor(Room.DropThroughColour, 1), new IndirectConnection[]
+                new DoorRef(Room.PullTute02, 0),
+                new Door(new DoorRef(Room.DropThroughColour, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.PullTute02, 1),
+                    new IndirectConnection(new DoorRef(Room.PullTute02, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.PullTute02, 1),
-                new Door(getDoor(Room.SpikeTute03, 0), new IndirectConnection[]
+                new DoorRef(Room.PullTute02, 1),
+                new Door(new DoorRef(Room.SpikeTute03, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.PullTute02, 0),
+                    new IndirectConnection(new DoorRef(Room.PullTute02, 0),
                         not_only_purple,
                         not_only_purple,
                         not_only_purple),
@@ -719,20 +719,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** JumpColour *******************************************/
             {
-                getDoor(Room.JumpColour, 0),
-                new Door(getDoor(Room.SpikeTute03, 1), new IndirectConnection[]
+                new DoorRef(Room.JumpColour, 0),
+                new Door(new DoorRef(Room.SpikeTute03, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.JumpColour, 1),
+                    new IndirectConnection(new DoorRef(Room.JumpColour, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.JumpColour, 1),
-                new Door(getDoor(Room.BoulderTutorialNew01, 0), new IndirectConnection[]
+                new DoorRef(Room.JumpColour, 1),
+                new Door(new DoorRef(Room.BoulderTutorialNew01, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.JumpColour, 0),
+                    new IndirectConnection(new DoorRef(Room.JumpColour, 0),
                         aqua_plus_any,
                         aqua_plus_any,
                         aqua_plus_any),
@@ -740,20 +740,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** SpikeTute03 *******************************************/
             {
-                getDoor(Room.SpikeTute03, 0),
-                new Door(getDoor(Room.PullTute02, 1), new IndirectConnection[]
+                new DoorRef(Room.SpikeTute03, 0),
+                new Door(new DoorRef(Room.PullTute02, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.SpikeTute03, 1),
+                    new IndirectConnection(new DoorRef(Room.SpikeTute03, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.SpikeTute03, 1),
-                new Door(getDoor(Room.JumpColour, 0), new IndirectConnection[]
+                new DoorRef(Room.SpikeTute03, 1),
+                new Door(new DoorRef(Room.JumpColour, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.SpikeTute03, 0),
+                    new IndirectConnection(new DoorRef(Room.SpikeTute03, 0),
                         aqua_plus_any,
                         aqua_plus_any,
                         aqua_plus_any),
@@ -761,20 +761,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BoulderTutorialNew01 *******************************************/
             {
-                getDoor(Room.BoulderTutorialNew01, 0),
-                new Door(getDoor(Room.JumpColour, 1), new IndirectConnection[]
+                new DoorRef(Room.BoulderTutorialNew01, 0),
+                new Door(new DoorRef(Room.JumpColour, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BoulderTutorialNew01, 1),
+                    new IndirectConnection(new DoorRef(Room.BoulderTutorialNew01, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.BoulderTutorialNew01, 1),
-                new Door(getDoor(Room.BoulderDropChase02, 0), new IndirectConnection[]
+                new DoorRef(Room.BoulderTutorialNew01, 1),
+                new Door(new DoorRef(Room.BoulderDropChase02, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BoulderTutorialNew01, 0),
+                    new IndirectConnection(new DoorRef(Room.BoulderTutorialNew01, 0),
                         aqua,
                         aqua,
                         aqua),
@@ -782,20 +782,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** PurpleFragmentRoom *******************************************/
             {
-                getDoor(Room.PurpleFragmentRoom, 0),
-                new Door(getDoor(Room.BoulderTrap02, 1), new IndirectConnection[]
+                new DoorRef(Room.PurpleFragmentRoom, 0),
+                new Door(new DoorRef(Room.BoulderTrap02, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.PurpleFragmentRoom, 1),
+                    new IndirectConnection(new DoorRef(Room.PurpleFragmentRoom, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.PurpleFragmentRoom, 1),
-                new Door(getDoor(Room.PostPurpleCorridor, 0), new IndirectConnection[]
+                new DoorRef(Room.PurpleFragmentRoom, 1),
+                new Door(new DoorRef(Room.PostPurpleCorridor, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.PurpleFragmentRoom, 0),
+                    new IndirectConnection(new DoorRef(Room.PurpleFragmentRoom, 0),
                         any,
                         any,
                         any),
@@ -803,20 +803,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** AlternatingColourSwitch *******************************************/
             {
-                getDoor(Room.AlternatingColourSwitch, 0),
-                new Door(getDoor(Room.PostPurpleCorridor, 1), new IndirectConnection[]
+                new DoorRef(Room.AlternatingColourSwitch, 0),
+                new Door(new DoorRef(Room.PostPurpleCorridor, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.AlternatingColourSwitch, 1),
+                    new IndirectConnection(new DoorRef(Room.AlternatingColourSwitch, 1),
                         aquaPurple_or_anyOther,
                         aquaPurple_or_anyOther,
                         aquaPurple_or_anyOther),
                 })
             },
             {
-                getDoor(Room.AlternatingColourSwitch, 1),
-                new Door(getDoor(Room.FallThroughColours, 0), new IndirectConnection[]
+                new DoorRef(Room.AlternatingColourSwitch, 1),
+                new Door(new DoorRef(Room.FallThroughColours, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.AlternatingColourSwitch, 0),
+                    new IndirectConnection(new DoorRef(Room.AlternatingColourSwitch, 0),
                         aquaPurple_or_anyOther,
                         aquaPurple_or_anyOther,
                         aquaPurple_or_anyOther),
@@ -824,20 +824,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** FallThroughColours *******************************************/
             {
-                getDoor(Room.FallThroughColours, 0),
-                new Door(getDoor(Room.AlternatingColourSwitch, 1), new IndirectConnection[]
+                new DoorRef(Room.FallThroughColours, 0),
+                new Door(new DoorRef(Room.AlternatingColourSwitch, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.FallThroughColours, 1),
+                    new IndirectConnection(new DoorRef(Room.FallThroughColours, 1),
                         aquaPurple,
                         aquaPurple,
                         aquaPurple),
                 })
             },
             {
-                getDoor(Room.FallThroughColours, 1),
-                new Door(getDoor(Room.AlternatingColourJumps02, 0), new IndirectConnection[]
+                new DoorRef(Room.FallThroughColours, 1),
+                new Door(new DoorRef(Room.AlternatingColourJumps02, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.FallThroughColours, 0),
+                    new IndirectConnection(new DoorRef(Room.FallThroughColours, 0),
                         aquaPurple_or_anyOther,
                         aquaPurple_or_anyOther,
                         aquaPurple_or_anyOther),
@@ -845,20 +845,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** AlternatingColourJumps02 *******************************************/
             {
-                getDoor(Room.FallThroughColours, 0),
-                new Door(getDoor(Room.FallThroughColours, 1), new IndirectConnection[]
+                new DoorRef(Room.AlternatingColourJumps02, 0),
+                new Door(new DoorRef(Room.FallThroughColours, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.FallThroughColours, 1),
+                    new IndirectConnection(new DoorRef(Room.AlternatingColourJumps02, 1),
                         aqua_plus_any,
                         aqua_plus_any,
                         aqua_plus_any),
                 })
             },
             {
-                getDoor(Room.FallThroughColours, 1),
-                new Door(getDoor(Room.ClimbUpColours02, 0), new IndirectConnection[]
+                new DoorRef(Room.AlternatingColourJumps02, 1),
+                new Door(new DoorRef(Room.ClimbUpColours02, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.FallThroughColours, 0),
+                    new IndirectConnection(new DoorRef(Room.AlternatingColourJumps02, 0),
                         aqua_plus_any,
                         aqua_plus_any,
                         aqua_plus_any),
@@ -866,20 +866,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** ClimbUpColours02 *******************************************/
             {
-                getDoor(Room.ClimbUpColours02, 0),
-                new Door(getDoor(Room.AlternatingColourJumps02, 1), new IndirectConnection[]
+                new DoorRef(Room.ClimbUpColours02, 0),
+                new Door(new DoorRef(Room.AlternatingColourJumps02, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.ClimbUpColours02, 1),
+                    new IndirectConnection(new DoorRef(Room.ClimbUpColours02, 1),
                         aqua_plus_any,
                         aqua_plus_any,
                         any),
                 })
             },
             {
-                getDoor(Room.ClimbUpColours02, 1),
-                new Door(getDoor(Room.OrangeFragmentRoom, 0), new IndirectConnection[]
+                new DoorRef(Room.ClimbUpColours02, 1),
+                new Door(new DoorRef(Room.OrangeFragmentRoom, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.ClimbUpColours02, 0),
+                    new IndirectConnection(new DoorRef(Room.ClimbUpColours02, 0),
                         any,
                         any,
                         any),
@@ -887,20 +887,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** OrangeFragmentRoom *******************************************/
             {
-                getDoor(Room.OrangeFragmentRoom, 0),
-                new Door(getDoor(Room.ClimbUpColours02, 1), new IndirectConnection[]
+                new DoorRef(Room.OrangeFragmentRoom, 0),
+                new Door(new DoorRef(Room.ClimbUpColours02, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.OrangeFragmentRoom, 1),
+                    new IndirectConnection(new DoorRef(Room.OrangeFragmentRoom, 1),
                         aqua_plus_any,
                         aqua_plus_any,
                         any),
                 })
             },
             {
-                getDoor(Room.OrangeFragmentRoom, 1),
-                new Door(getDoor(Room.WaterExit, 0), new IndirectConnection[]
+                new DoorRef(Room.OrangeFragmentRoom, 1),
+                new Door(new DoorRef(Room.WaterExit, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.OrangeFragmentRoom, 0),
+                    new IndirectConnection(new DoorRef(Room.OrangeFragmentRoom, 0),
                         any,
                         any,
                         any),
@@ -908,20 +908,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** MountainsEntrance *******************************************/
             {
-                getDoor(Room.MountainsEntrance, 0),
-                new Door(getDoor(Room.IslandPort, 1), new IndirectConnection[]
+                new DoorRef(Room.MountainsEntrance, 0),
+                new Door(new DoorRef(Room.IslandPort, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsEntrance, 1),
+                    new IndirectConnection(new DoorRef(Room.MountainsEntrance, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.MountainsEntrance, 1),
-                new Door(getDoor(Room.MountainsBounceIntro, 0), new IndirectConnection[]
+                new DoorRef(Room.MountainsEntrance, 1),
+                new Door(new DoorRef(Room.MountainsBounceIntro, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsEntrance, 0),
+                    new IndirectConnection(new DoorRef(Room.MountainsEntrance, 0),
                         any,
                         any,
                         any),
@@ -929,20 +929,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BoulderDropChase02 *******************************************/
             {
-                getDoor(Room.BoulderDropChase02, 0),
-                new Door(getDoor(Room.BoulderTutorialNew01, 1), new IndirectConnection[]
+                new DoorRef(Room.BoulderDropChase02, 0),
+                new Door(new DoorRef(Room.BoulderTutorialNew01, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BoulderDropChase02, 1),
+                    new IndirectConnection(new DoorRef(Room.BoulderDropChase02, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.BoulderDropChase02, 1),
-                new Door(getDoor(Room.BoulderTrap02, 0), new IndirectConnection[]
+                new DoorRef(Room.BoulderDropChase02, 1),
+                new Door(new DoorRef(Room.BoulderTrap02, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BoulderDropChase02, 0),
+                    new IndirectConnection(new DoorRef(Room.BoulderDropChase02, 0),
                         impossible,
                         impossible,
                         impossible),
@@ -950,20 +950,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BoulderTrap02 *******************************************/
             {
-                getDoor(Room.BoulderTrap02, 0),
-                new Door(getDoor(Room.BoulderDropChase02, 1), new IndirectConnection[]
+                new DoorRef(Room.BoulderTrap02, 0),
+                new Door(new DoorRef(Room.BoulderDropChase02, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BoulderTrap02, 1),
+                    new IndirectConnection(new DoorRef(Room.BoulderTrap02, 1),
                         aqua,
                         aqua,
                         aqua),
                 })
             },
             {
-                getDoor(Room.BoulderTrap02, 1),
-                new Door(getDoor(Room.PurpleFragmentRoom, 0), new IndirectConnection[]
+                new DoorRef(Room.BoulderTrap02, 1),
+                new Door(new DoorRef(Room.PurpleFragmentRoom, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BoulderTrap02, 0),
+                    new IndirectConnection(new DoorRef(Room.BoulderTrap02, 0),
                         aqua,
                         aqua,
                         aqua),
@@ -971,20 +971,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** PinkFragmentRoom *******************************************/
             {
-                getDoor(Room.PinkFragmentRoom, 0),
-                new Door(getDoor(Room.AlternatingBoulders, 1), new IndirectConnection[]
+                new DoorRef(Room.PinkFragmentRoom, 0),
+                new Door(new DoorRef(Room.AlternatingBoulders, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.PinkFragmentRoom, 1),
+                    new IndirectConnection(new DoorRef(Room.PinkFragmentRoom, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.PinkFragmentRoom, 1),
-                new Door(getDoor(Room.PostPinkCorridor, 0), new IndirectConnection[]
+                new DoorRef(Room.PinkFragmentRoom, 1),
+                new Door(new DoorRef(Room.PostPinkCorridor, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.PinkFragmentRoom, 0),
+                    new IndirectConnection(new DoorRef(Room.PinkFragmentRoom, 0),
                         any,
                         any,
                         any),
@@ -992,20 +992,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** UniversityOutside *******************************************/
             {
-                getDoor(Room.UniversityOutside, 0),
-                new Door(getDoor(Room.UniversityLobby, 0), new IndirectConnection[]
+                new DoorRef(Room.UniversityOutside, 0),
+                new Door(new DoorRef(Room.UniversityLobby, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniversityOutside, 1),
+                    new IndirectConnection(new DoorRef(Room.UniversityOutside, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.UniversityOutside, 1),
-                new Door(getDoor(Room.LaserBounceChange, 1), new IndirectConnection[]
+                new DoorRef(Room.UniversityOutside, 1),
+                new Door(new DoorRef(Room.LaserBounceChange, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniversityOutside, 0),
+                    new IndirectConnection(new DoorRef(Room.UniversityOutside, 0),
                         any,
                         any,
                         any),
@@ -1013,42 +1013,42 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** UniversityLobby *******************************************/
             {
-                getDoor(Room.UniversityLobby, 0),
-                new Door(getDoor(Room.UniversityOutside, 0), new IndirectConnection[]
+                new DoorRef(Room.UniversityLobby, 0),
+                new Door(new DoorRef(Room.UniversityOutside, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniversityLobby, 1),
+                    new IndirectConnection(new DoorRef(Room.UniversityLobby, 1),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.UniversityLobby, 2),
+                    new IndirectConnection(new DoorRef(Room.UniversityLobby, 2),
                         impossible,
                         impossible,
                         not_only_blue),
                 })
             },
             {
-                getDoor(Room.UniversityLobby, 1),
-                new Door(getDoor(Room.BasementGoo, 1), new IndirectConnection[]
+                new DoorRef(Room.UniversityLobby, 1),
+                new Door(new DoorRef(Room.BasementGoo, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniversityLobby, 0),
+                    new IndirectConnection(new DoorRef(Room.UniversityLobby, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.UniversityLobby, 2),
+                    new IndirectConnection(new DoorRef(Room.UniversityLobby, 2),
                         impossible,
                         impossible,
                         not_only_blue),
                 })
             },
             {
-                getDoor(Room.UniversityLobby, 2),
-                new Door(getDoor(Room.MumRoom, 1), new IndirectConnection[]
+                new DoorRef(Room.UniversityLobby, 2),
+                new Door(new DoorRef(Room.MumRoom, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniversityLobby, 0),
+                    new IndirectConnection(new DoorRef(Room.UniversityLobby, 0),
                         any,
                         any,
                         any),
-                    new IndirectConnection(getDoor(Room.UniversityLobby, 1),
+                    new IndirectConnection(new DoorRef(Room.UniversityLobby, 1),
                         any,
                         any,
                         any),
@@ -1056,20 +1056,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BasementGoo *******************************************/
             {
-                getDoor(Room.BasementGoo, 0),
-                new Door(getDoor(Room.UniversityLobby, 1), new IndirectConnection[]
+                new DoorRef(Room.BasementGoo, 0),
+                new Door(new DoorRef(Room.UniversityLobby, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BasementGoo, 1),
+                    new IndirectConnection(new DoorRef(Room.BasementGoo, 1),
                         blue_plus_any,
                         blue_plus_any,
                         blue_plus_any),
                 })
             },
             {
-                getDoor(Room.BasementGoo, 1),
-                new Door(getDoor(Room.UniLetterCorridor, 0), new IndirectConnection[]
+                new DoorRef(Room.BasementGoo, 1),
+                new Door(new DoorRef(Room.UniLetterCorridor, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BasementGoo, 0),
+                    new IndirectConnection(new DoorRef(Room.BasementGoo, 0),
                         impossible,
                         impossible,
                         impossible),
@@ -1077,20 +1077,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** UniGooStairs *******************************************/
             {
-                getDoor(Room.UniGooStairs, 0),
-                new Door(getDoor(Room.ThwompDoubleLaser, 1), new IndirectConnection[]
+                new DoorRef(Room.UniGooStairs, 0),
+                new Door(new DoorRef(Room.ThwompDoubleLaser, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniGooStairs, 1),
+                    new IndirectConnection(new DoorRef(Room.UniGooStairs, 1),
                         aquaPurpleOrangeRedGreen,
                         aquaPurpleOrangeRedGreen,
                         red),
                 })
             },
             {
-                getDoor(Room.UniGooStairs, 1),
-                new Door(getDoor(Room.Courtyard2, 0), new IndirectConnection[]
+                new DoorRef(Room.UniGooStairs, 1),
+                new Door(new DoorRef(Room.Courtyard2, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniGooStairs, 0),
+                    new IndirectConnection(new DoorRef(Room.UniGooStairs, 0),
                         aquaPurpleOrangeRedGreen,
                         aquaPurpleOrangeRedGreen,
                         red),
@@ -1098,20 +1098,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** ConveyerGoo *******************************************/
             {
-                getDoor(Room.ConveyerGoo, 0),
-                new Door(getDoor(Room.Courtyard1, 1), new IndirectConnection[]
+                new DoorRef(Room.ConveyerGoo, 0),
+                new Door(new DoorRef(Room.Courtyard1, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.ConveyerGoo, 1),
+                    new IndirectConnection(new DoorRef(Room.ConveyerGoo, 1),
                         aquaYellowGreen,
                         aquaYellowGreen,
                         any),
                 })
             },
             {
-                getDoor(Room.ConveyerGoo, 1),
-                new Door(getDoor(Room.GooBalloonDip, 0), new IndirectConnection[]
+                new DoorRef(Room.ConveyerGoo, 1),
+                new Door(new DoorRef(Room.GooBalloonDip, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.ConveyerGoo, 0),
+                    new IndirectConnection(new DoorRef(Room.ConveyerGoo, 0),
                         any,
                         any,
                         any),
@@ -1119,20 +1119,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** GooPressure *******************************************/
             {
-                getDoor(Room.GooPressure, 0),
-                new Door(getDoor(Room.GooBalloonPressure, 1), new IndirectConnection[]
+                new DoorRef(Room.GooPressure, 0),
+                new Door(new DoorRef(Room.GooBalloonPressure, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.GooPressure, 1),
+                    new IndirectConnection(new DoorRef(Room.GooPressure, 1),
                         aquaOrangePink,
                         orange,
                         orange),
                 })
             },
             {
-                getDoor(Room.GooPressure, 1),
-                new Door(getDoor(Room.Courtyard1, 0), new IndirectConnection[]
+                new DoorRef(Room.GooPressure, 1),
+                new Door(new DoorRef(Room.Courtyard1, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.GooPressure, 0),
+                    new IndirectConnection(new DoorRef(Room.GooPressure, 0),
                         impossible,
                         impossible,
                         impossible),
@@ -1140,20 +1140,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** UniGooStairsDown *******************************************/
             {
-                getDoor(Room.UniGooStairsDown, 0),
-                new Door(getDoor(Room.UniSlide, 1), new IndirectConnection[]
+                new DoorRef(Room.UniGooStairsDown, 0),
+                new Door(new DoorRef(Room.UniSlide, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniGooStairsDown, 1),
+                    new IndirectConnection(new DoorRef(Room.UniGooStairsDown, 1),
                         aqua_plus_any_or_red_plus_any,
                         aqua_plus_any_or_red_plus_any,
                         any),
                 })
             },
             {
-                getDoor(Room.UniGooStairsDown, 1),
-                new Door(getDoor(Room.ThwompGooClimb, 0), new IndirectConnection[]
+                new DoorRef(Room.UniGooStairsDown, 1),
+                new Door(new DoorRef(Room.ThwompGooClimb, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.UniGooStairsDown, 0),
+                    new IndirectConnection(new DoorRef(Room.UniGooStairsDown, 0),
                         any,
                         any,
                         any),
@@ -1161,20 +1161,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** TrophyRoom *******************************************/
             {
-                getDoor(Room.TrophyRoom, 0),
-                new Door(getDoor(Room.GooBalloonDip, 1), new IndirectConnection[]
+                new DoorRef(Room.TrophyRoom, 0),
+                new Door(new DoorRef(Room.GooBalloonDip, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.TrophyRoom, 1),
+                    new IndirectConnection(new DoorRef(Room.TrophyRoom, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.TrophyRoom, 1),
-                new Door(getDoor(Room.ThwompDoubleLaser, 0), new IndirectConnection[]
+                new DoorRef(Room.TrophyRoom, 1),
+                new Door(new DoorRef(Room.ThwompDoubleLaser, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.TrophyRoom, 0),
+                    new IndirectConnection(new DoorRef(Room.TrophyRoom, 0),
                         any,
                         any,
                         any),
@@ -1182,20 +1182,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** GooBalloonDip *******************************************/
             {
-                getDoor(Room.GooBalloonDip, 0),
-                new Door(getDoor(Room.ConveyerGoo, 1), new IndirectConnection[]
+                new DoorRef(Room.GooBalloonDip, 0),
+                new Door(new DoorRef(Room.ConveyerGoo, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.GooBalloonDip, 1),
+                    new IndirectConnection(new DoorRef(Room.GooBalloonDip, 1),
                         purpleOrangeRed,
                         purple_plus_any_or_orange_plus_any,
                         purple_plus_any_or_orange_plus_any),
                 })
             },
             {
-                getDoor(Room.GooBalloonDip, 1),
-                new Door(getDoor(Room.TrophyRoom, 0), new IndirectConnection[]
+                new DoorRef(Room.GooBalloonDip, 1),
+                new Door(new DoorRef(Room.TrophyRoom, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.GooBalloonDip, 0),
+                    new IndirectConnection(new DoorRef(Room.GooBalloonDip, 0),
                         purpleOrange_plus_any,
                         purpleOrange_plus_any,
                         purpleOrange),
@@ -1203,20 +1203,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** GooBalloonPressure *******************************************/
             {
-                getDoor(Room.GooBalloonPressure, 0),
-                new Door(getDoor(Room.UniLetterCorridor, 1), new IndirectConnection[]
+                new DoorRef(Room.GooBalloonPressure, 0),
+                new Door(new DoorRef(Room.UniLetterCorridor, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.GooBalloonPressure, 1),
+                    new IndirectConnection(new DoorRef(Room.GooBalloonPressure, 1),
                         redBlueGreen,
                         redBlueGreen,
                         redGreen_plus_any),
                 })
             },
             {
-                getDoor(Room.GooBalloonPressure, 1),
-                new Door(getDoor(Room.GooPressure, 0), new IndirectConnection[]
+                new DoorRef(Room.GooBalloonPressure, 1),
+                new Door(new DoorRef(Room.GooPressure, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.GooBalloonPressure, 0),
+                    new IndirectConnection(new DoorRef(Room.GooBalloonPressure, 0),
                         impossible,
                         impossible,
                         impossible),
@@ -1224,20 +1224,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** MountainsPostBounceIntro *******************************************/
             {
-                getDoor(Room.MountainsPostBounceIntro, 0),
-                new Door(getDoor(Room.MountainsBounceIntro, 1), new IndirectConnection[]
+                new DoorRef(Room.MountainsPostBounceIntro, 0),
+                new Door(new DoorRef(Room.MountainsBounceIntro, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsPostBounceIntro, 1),
+                    new IndirectConnection(new DoorRef(Room.MountainsPostBounceIntro, 1),
                         purple,
                         purple,
                         purple),
                 })
             },
             {
-                getDoor(Room.MountainsPostBounceIntro, 1),
-                new Door(getDoor(Room.BounceToDeath, 0), new IndirectConnection[]
+                new DoorRef(Room.MountainsPostBounceIntro, 1),
+                new Door(new DoorRef(Room.BounceToDeath, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsPostBounceIntro, 0),
+                    new IndirectConnection(new DoorRef(Room.MountainsPostBounceIntro, 0),
                         purple,
                         purple,
                         purple),
@@ -1245,20 +1245,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BounceToDeath *******************************************/
             {
-                getDoor(Room.BounceToDeath, 0),
-                new Door(getDoor(Room.MountainsPostBounceIntro, 1), new IndirectConnection[]
+                new DoorRef(Room.BounceToDeath, 0),
+                new Door(new DoorRef(Room.MountainsPostBounceIntro, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceToDeath, 1),
+                    new IndirectConnection(new DoorRef(Room.BounceToDeath, 1),
                         purpleBlueYellow,
                         purpleBlueYellow,
                         purpleGreen_or_purpleYellow_or_pinkBlueGreen_or_pinkBlueYellow),
                 })
             },
             {
-                getDoor(Room.BounceToDeath, 1),
-                new Door(getDoor(Room.MountainsBounceKeyRetrieve, 0), new IndirectConnection[]
+                new DoorRef(Room.BounceToDeath, 1),
+                new Door(new DoorRef(Room.MountainsBounceKeyRetrieve, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceToDeath, 0),
+                    new IndirectConnection(new DoorRef(Room.BounceToDeath, 0),
                         purpleBlueYellow,
                         purpleBlueYellow,
                         purpleGreen_or_purpleYellow_or_pinkBlueGreen_or_pinkBlueYellow),
@@ -1266,20 +1266,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** MountainsBounceKeyRetrieve *******************************************/
             {
-                getDoor(Room.MountainsBounceKeyRetrieve, 0),
-                new Door(getDoor(Room.BounceToDeath, 1), new IndirectConnection[]
+                new DoorRef(Room.MountainsBounceKeyRetrieve, 0),
+                new Door(new DoorRef(Room.BounceToDeath, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsBounceKeyRetrieve, 1),
+                    new IndirectConnection(new DoorRef(Room.MountainsBounceKeyRetrieve, 1),
                         anyTwo,
                         anyTwo,
                         blueOrange_or_anyOther),
                 })
             },
             {
-                getDoor(Room.MountainsBounceKeyRetrieve, 1),
-                new Door(getDoor(Room.BounceSpikePit, 0), new IndirectConnection[]
+                new DoorRef(Room.MountainsBounceKeyRetrieve, 1),
+                new Door(new DoorRef(Room.BounceSpikePit, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsBounceKeyRetrieve, 0),
+                    new IndirectConnection(new DoorRef(Room.MountainsBounceKeyRetrieve, 0),
                         blueOrange_or_anyOther,
                         blueOrange_or_anyOther,
                         blueOrange_or_anyOther),
@@ -1287,20 +1287,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BounceSpikePit *******************************************/
             {
-                getDoor(Room.BounceSpikePit, 0),
-                new Door(getDoor(Room.MountainsBounceKeyRetrieve, 1), new IndirectConnection[]
+                new DoorRef(Room.BounceSpikePit, 0),
+                new Door(new DoorRef(Room.MountainsBounceKeyRetrieve, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceSpikePit, 1),
+                    new IndirectConnection(new DoorRef(Room.BounceSpikePit, 1),
                         any,
                         any,
                         any),
                 })
             },
             {
-                getDoor(Room.BounceSpikePit, 1),
-                new Door(getDoor(Room.MountainsZigZag, 0), new IndirectConnection[]
+                new DoorRef(Room.BounceSpikePit, 1),
+                new Door(new DoorRef(Room.MountainsZigZag, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceSpikePit, 0),
+                    new IndirectConnection(new DoorRef(Room.BounceSpikePit, 0),
                         any,
                         any,
                         any),
@@ -1308,20 +1308,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** MountainsZigZag *******************************************/
             {
-                getDoor(Room.MountainsZigZag, 0),
-                new Door(getDoor(Room.BounceSpikePit, 1), new IndirectConnection[]
+                new DoorRef(Room.MountainsZigZag, 0),
+                new Door(new DoorRef(Room.BounceSpikePit, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsZigZag, 1),
+                    new IndirectConnection(new DoorRef(Room.MountainsZigZag, 1),
                         aquaPurpleOrangeYellow,
                         aquaPurpleOrangeYellow,
                         aquaYellow_or_purpleYellow_or_orangeYellow),
                 })
             },
             {
-                getDoor(Room.MountainsZigZag, 1),
-                new Door(getDoor(Room.BounceThwompDash, 0), new IndirectConnection[]
+                new DoorRef(Room.MountainsZigZag, 1),
+                new Door(new DoorRef(Room.BounceThwompDash, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.MountainsZigZag, 0),
+                    new IndirectConnection(new DoorRef(Room.MountainsZigZag, 0),
                         aquaYellow_or_purpleYellow_or_orangeYellow,
                         aquaYellow_or_purpleYellow_or_orangeYellow,
                         aquaYellow_or_purpleYellow_or_orangeYellow),
@@ -1329,20 +1329,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BounceThwompDash *******************************************/
             {
-                getDoor(Room.BounceThwompDash, 0),
-                new Door(getDoor(Room.MountainsZigZag, 1), new IndirectConnection[]
+                new DoorRef(Room.BounceThwompDash, 0),
+                new Door(new DoorRef(Room.MountainsZigZag, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceThwompDash, 1),
+                    new IndirectConnection(new DoorRef(Room.BounceThwompDash, 1),
                         purple,
                         purple,
                         purple),
                 })
             },
             {
-                getDoor(Room.BounceThwompDash, 1),
-                new Door(getDoor(Room.MountainsBounceLaserIntro, 0), new IndirectConnection[]
+                new DoorRef(Room.BounceThwompDash, 1),
+                new Door(new DoorRef(Room.MountainsBounceLaserIntro, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceThwompDash, 0),
+                    new IndirectConnection(new DoorRef(Room.BounceThwompDash, 0),
                         purple,
                         purple,
                         purple),
@@ -1350,20 +1350,20 @@ namespace HueRandomizer.DoorGraph
             },
             /************************** BounceCrateDrag *******************************************/
             {
-                getDoor(Room.BounceCrateDrag, 0),
-                new Door(getDoor(Room.MountainsBounceLaserIntro, 1), new IndirectConnection[]
+                new DoorRef(Room.BounceCrateDrag, 0),
+                new Door(new DoorRef(Room.MountainsBounceLaserIntro, 1), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceCrateDrag, 1),
+                    new IndirectConnection(new DoorRef(Room.BounceCrateDrag, 1),
                         aquaRedYellow,
                         aquaRedYellow,
                         aquaYellow),
                 })
             },
             {
-                getDoor(Room.BounceCrateDrag, 1),
-                new Door(getDoor(Room.BouncePit, 0), new IndirectConnection[]
+                new DoorRef(Room.BounceCrateDrag, 1),
+                new Door(new DoorRef(Room.BouncePit, 0), new IndirectConnection[]
                 {
-                    new IndirectConnection(getDoor(Room.BounceCrateDrag, 0),
+                    new IndirectConnection(new DoorRef(Room.BounceCrateDrag, 0),
                         impossible,
                         impossible,
                         impossible),

@@ -21,67 +21,63 @@ namespace HueRandomizer.DoorGraph
             NoneOf = 1 << 8,
         }
 
-        static int getDoor(Room room, int doorNum)
+        public readonly struct DoorRef : IEquatable<DoorRef>
         {
-            return ((int)room << 3) + doorNum;
+            public readonly Room room;
+            public readonly int doorNum;
+            public DoorRef(Room room, int doorNum)
+            {
+                this.doorNum = doorNum;
+                this.room = room;
+            }
+
+            public bool Equals(DoorRef other)
+            {
+                return room == other.room && doorNum == other.doorNum;
+            }
+
+            public override int GetHashCode()
+            {
+                int hashCode = -134257487;
+                hashCode = hashCode * -1521134295 + room.GetHashCode();
+                hashCode = hashCode * -1521134295 + doorNum.GetHashCode();
+                return hashCode;
+            }
         }
 
         public struct Door
         {
-            public Door(int directConnection, IndirectConnection[] indirectConnections)
+            public Door(DoorRef directConnection, IndirectConnection[] indirectConnections)
             {
                 this.directConnection = directConnection;
                 this.indirectConnections = indirectConnections;
             }
-            public int directConnection;
+            public DoorRef directConnection;
             public readonly IndirectConnection[] indirectConnections;
         }
 
         public readonly struct IndirectConnection
         {
-            public IndirectConnection(int door, uint[] casualConstraint, uint[] nwjConstraint, uint[] anyConstraint)
+            public IndirectConnection(DoorRef door, uint[] casualConstraint, uint[] nwjConstraint, uint[] anyConstraint)
             {
                 this.door = door;
                 this.casualConstraint = casualConstraint;
                 this.nwjConstraint = nwjConstraint;
                 this.anyConstraint = anyConstraint;
             }
-            public readonly int door;
+            public readonly DoorRef door;
             // 1 for required, 0 for not required
             public readonly uint[] casualConstraint;  // No tricks
             public readonly uint[] nwjConstraint;  // nwj tricks
             public readonly uint[] anyConstraint;  // unrestricted tricks
         }
 
-        public static bool isTraversible(uint state, uint[] constraint)
-        {
-            foreach (uint condition in constraint)
-            {
-                if ((condition & (uint)Constraints.NoneOf) == (uint)Constraints.NoneOf)
-                {
-                    uint noneOf = condition & ~(uint)Constraints.NoneOf;
-                    if ((state & noneOf) == 0)
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    if ((state & condition) == condition)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
         public static bool getTarget(int levelId, int doorNum, out int newLevelId, out int newDoorNum)
         {
-            if (doorMapping.TryGetValue(getDoor((Room)levelId, doorNum), out Door door))
+            if (doorMapping.TryGetValue(new DoorRef((Room)levelId, doorNum), out Door door))
             {
-                newDoorNum = door.directConnection & 0b111;
-                newLevelId = door.directConnection >> 3;
+                newDoorNum = door.directConnection.doorNum;
+                newLevelId = (int)door.directConnection.room;
                 return true;
             }
             else
