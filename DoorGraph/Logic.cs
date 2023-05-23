@@ -18,6 +18,7 @@ namespace HueRandomizer.DoorGraph
             Blue = 1 << 5,
             Yellow = 1 << 6,
             Green = 1 << 7,
+            NoneOf = 1 << 8,
         }
 
         static int getDoor(Room room, int doorNum)
@@ -50,6 +51,29 @@ namespace HueRandomizer.DoorGraph
             public readonly uint[] casualConstraint;  // No tricks
             public readonly uint[] nwjConstraint;  // nwj tricks
             public readonly uint[] anyConstraint;  // unrestricted tricks
+        }
+
+        public static bool isTraversible(uint state, uint[] constraint)
+        {
+            foreach (uint condition in constraint)
+            {
+                if ((condition & (uint)Constraints.NoneOf) == (uint)Constraints.NoneOf)
+                {
+                    uint noneOf = condition & ~(uint)Constraints.NoneOf;
+                    if ((state & noneOf) == 0)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    if ((state & condition) == condition)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public static bool getTarget(int levelId, int doorNum, out int newLevelId, out int newDoorNum)
