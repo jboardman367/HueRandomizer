@@ -145,29 +145,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.Lighthouse, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 2),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 4),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 6),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -175,29 +175,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.CycleHouse, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 2),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 4),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 6),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -205,29 +205,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.OldLadyHouse, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 4),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 6),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -235,29 +235,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.ThinHouse, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 2),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 4),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 6),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -265,29 +265,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.ThinHouse, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 2),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 6),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -295,29 +295,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.CaveMinerArea, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 2),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 4),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 6),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -325,29 +325,29 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.IslandPort, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.Village, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 2),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 4),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.Village, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** Lighthouse *******************************************/
@@ -387,9 +387,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.Village, 3), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.ThinHouse, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -397,9 +397,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.Village, 4), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.ThinHouse, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** CaveMinerArea *******************************************/
@@ -524,7 +524,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 4),
                         impossible,
                         impossible,
-                        any),
+                        always),
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         red,
                         red,
@@ -556,9 +556,9 @@ namespace HueRandomizer.DoorGraph
                         aquaOrange,
                         aquaOrange),
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 3),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
                         red,
                         red,
@@ -600,7 +600,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 6),
                         impossible,
                         impossible,
-                        any),
+                        always),
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         redYellow,
                         redYellow,
@@ -632,9 +632,9 @@ namespace HueRandomizer.DoorGraph
                         aquaOrangeRed,
                         aquaOrangeRed),
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 5),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.CaveMinerArea, 7),
                         redYellow,
                         redYellow,
@@ -786,9 +786,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.BoulderTrap02, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.PurpleFragmentRoom, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -796,9 +796,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.PostPurpleCorridor, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.PurpleFragmentRoom, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** AlternatingColourSwitch *******************************************/
@@ -872,7 +872,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.ClimbUpColours02, 1),
                         aqua_plus_any,
                         aqua_plus_any,
-                        any),
+                        always),
                 })
             },
             {
@@ -880,9 +880,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.OrangeFragmentRoom, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.ClimbUpColours02, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** OrangeFragmentRoom *******************************************/
@@ -893,7 +893,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.OrangeFragmentRoom, 1),
                         aqua_plus_any,
                         aqua_plus_any,
-                        any),
+                        always),
                 })
             },
             {
@@ -901,9 +901,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.WaterExit, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.OrangeFragmentRoom, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** MountainsEntrance *******************************************/
@@ -912,9 +912,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.IslandPort, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.MountainsEntrance, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -922,9 +922,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.MountainsBounceIntro, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.MountainsEntrance, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** BoulderDropChase02 *******************************************/
@@ -975,9 +975,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.AlternatingBoulders, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.PinkFragmentRoom, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -985,9 +985,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.PostPinkCorridor, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.PinkFragmentRoom, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** UniversityOutside *******************************************/
@@ -996,9 +996,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.UniversityLobby, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.UniversityOutside, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -1006,9 +1006,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.LaserBounceChange, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.UniversityOutside, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** UniversityLobby *******************************************/
@@ -1017,9 +1017,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.UniversityOutside, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.UniversityLobby, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.UniversityLobby, 2),
                         impossible,
                         impossible,
@@ -1031,9 +1031,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.BasementGoo, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.UniversityLobby, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.UniversityLobby, 2),
                         impossible,
                         impossible,
@@ -1045,13 +1045,13 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.MumRoom, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.UniversityLobby, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                     new IndirectConnection(new DoorRef(Room.UniversityLobby, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** BasementGoo *******************************************/
@@ -1104,7 +1104,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.ConveyerGoo, 1),
                         aquaYellowGreen,
                         aquaYellowGreen,
-                        any),
+                        always),
                 })
             },
             {
@@ -1112,9 +1112,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.GooBalloonDip, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.ConveyerGoo, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** GooPressure *******************************************/
@@ -1146,7 +1146,7 @@ namespace HueRandomizer.DoorGraph
                     new IndirectConnection(new DoorRef(Room.UniGooStairsDown, 1),
                         aqua_plus_any_or_red_plus_any,
                         aqua_plus_any_or_red_plus_any,
-                        any),
+                        always),
                 })
             },
             {
@@ -1154,9 +1154,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.ThwompGooClimb, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.UniGooStairsDown, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** TrophyRoom *******************************************/
@@ -1165,9 +1165,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.GooBalloonDip, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.TrophyRoom, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -1175,9 +1175,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.ThwompDoubleLaser, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.TrophyRoom, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** GooBalloonDip *******************************************/
@@ -1291,9 +1291,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.MountainsBounceKeyRetrieve, 1), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.BounceSpikePit, 1),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             {
@@ -1301,9 +1301,9 @@ namespace HueRandomizer.DoorGraph
                 new Door(new DoorRef(Room.MountainsZigZag, 0), new IndirectConnection[]
                 {
                     new IndirectConnection(new DoorRef(Room.BounceSpikePit, 0),
-                        any,
-                        any,
-                        any),
+                        always,
+                        always,
+                        always),
                 })
             },
             /************************** MountainsZigZag *******************************************/
@@ -1374,7 +1374,7 @@ namespace HueRandomizer.DoorGraph
 
         static readonly Func<Constraints, bool>
             impossible = (Constraints c) => false,
-            any = (Constraints c) => true,
+            always = (Constraints c) => true,
             green = (Constraints c) => c.green,
             aqua = (Constraints c) => c.aqua,
             purple = (Constraints c) => c.purple,
