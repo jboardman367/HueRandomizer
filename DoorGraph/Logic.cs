@@ -18,6 +18,7 @@ namespace HueRandomizer.DoorGraph
             public bool blue;
             public bool yellow;
             public bool green;
+            public bool deathwarp;
         }
 
         public readonly struct DoorRef : IEquatable<DoorRef>
