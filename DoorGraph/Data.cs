@@ -683,6 +683,79 @@ namespace HueRandomizer.DoorGraph
                         yellow),
                 })
             },
+            /************************** TechHub *****************************************/
+            {
+                new DoorRef(Room.TechHub, 0),
+                new Door(new DoorRef(Room.CaveMinerArea, 7), new IndirectConnection[]
+                {
+                    new IndirectConnection(new DoorRef(Room.TechHub, 1),
+                        red,
+                        red,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 2),
+                        impossible,
+                        impossible,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 3),
+                        green,
+                        green,
+                        always),
+                })
+            },
+            {
+                new DoorRef(Room.TechHub, 1),
+                new Door(new DoorRef(Room.TechIntro, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(new DoorRef(Room.TechHub, 0),
+                        red,
+                        red,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 2),
+                        impossible,
+                        impossible,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 3),
+                        redGreen,
+                        redGreen,
+                        always),
+                })
+            },
+            {
+                new DoorRef(Room.TechHub, 2),
+                new Door(new DoorRef(Room.LeverMadness, 1), new IndirectConnection[]
+                {
+                    new IndirectConnection(new DoorRef(Room.TechHub, 1),
+                        red,
+                        red,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 0),
+                        always,
+                        always,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 3),
+                        green,
+                        green,
+                        always),
+                })
+            },
+            {
+                new DoorRef(Room.TechHub, 3),
+                new Door(new DoorRef(Room.TechToLighthouse, 0), new IndirectConnection[]
+                {
+                    new IndirectConnection(new DoorRef(Room.TechHub, 1),
+                        redGreen,
+                        redGreen,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 2),
+                        impossible,
+                        impossible,
+                        always),
+                    new IndirectConnection(new DoorRef(Room.TechHub, 0),
+                        green,
+                        green,
+                        always),
+                })
+            },
             /************************** DropThroughColour *******************************************/
             {
                 new DoorRef(Room.DropThroughColour, 0),
@@ -1768,7 +1841,7 @@ namespace HueRandomizer.DoorGraph
 			},
 			{
 				new DoorRef(Room.LeverMadness, 1),
-				new Door(new DoorRef(Room.TechToLighthouse, 0), new IndirectConnection[]
+				new Door(new DoorRef(Room.TechHub, 2), new IndirectConnection[]
 				{
 					new IndirectConnection(new DoorRef(Room.LeverMadness, 0),
 						yellow,
