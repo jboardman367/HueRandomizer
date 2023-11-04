@@ -26,7 +26,7 @@ namespace HueRandomizer
             PlayerPrefs.DeleteKey("DoorOffsetZ");
             if (!Application.isEditor)
             {
-                ___startingColours = GetAllColoursUnlocked();
+                ___startingColours = 0;
             }
             __instance.LoadGame();
             __instance.SaveProgress();

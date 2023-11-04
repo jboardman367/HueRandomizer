@@ -11,6 +11,7 @@ namespace HueRandomizer
     {
         [Header("Set to 0 for random seed:")]
         [Draw("Seed")]public int Seed;
+        [Draw(DrawType.ToggleGroup)] public Difficulty Difficulty = Difficulty.Glitchless;
 
         public override void Save(UnityModManager.ModEntry modEntry)
         {
