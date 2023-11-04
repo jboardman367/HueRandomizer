@@ -1,8 +1,8 @@
 {
   "Id": "HueRandomizer",
   "DisplayName" : "Hue Randomizer",
-  "Author": "Modiseus",
-  "Version": "1.0.0",
+  "Author": "Modiseus, luminousLamp367",
+  "Version": "2.0.0",
   "EntryMethod": "HueRandomizer.Main.Load",
-  "HomePage": "https://github.com/Modiseus/HueRandomizer"
+  "HomePage": "https://github.com/jboardman367/HueRandomizer"
 }
