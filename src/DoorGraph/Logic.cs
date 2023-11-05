@@ -196,10 +196,14 @@ namespace HueRandomizer.DoorGraph
                         if (doors.Contains(connection.door))
                         {
                             // Find possible connections
-                            DoorRef[] possibleDoors = doors.Where((d) => AnyIndirectConnectionPossible(d, node.constraints, difficulty)).ToArray();
-                            if (possibleDoors.Length > 0)
+                            List<DoorRef> possibleDoors = doors.Where((d) => AnyIndirectConnectionPossible(d, node.constraints, difficulty)).ToList();
+                            if (possibleDoors.Contains(connection.door))
                             {
-                                DoorRef nextDoor = possibleDoors[rand.Next(0, possibleDoors.Length - 1)];
+                                possibleDoors.Remove(connection.door);
+                            }
+                            if (possibleDoors.Count > 0)
+                            {
+                                DoorRef nextDoor = possibleDoors[rand.Next(0, possibleDoors.Count - 1)];
                                 doorMapping[connection.door].directConnection = nextDoor;
                                 doorMapping[nextDoor].directConnection = connection.door;
                                 doors.Remove(nextDoor);
